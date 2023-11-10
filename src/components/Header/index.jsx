@@ -1,7 +1,9 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
 import { months, days } from './../../data/date'
-import colors from './../../utils/style/colors'
+import styled from 'styled-components'
+import colors from '../../style/colors'
+import logo from './../../assets/Sirius.png'
 
 const HeaderStyle = styled.header`
   display: flex;
@@ -14,6 +16,9 @@ const LogoStyle = styled(Link)`
   text-decoration: none;
   font-weight: 500;
   font-size: 1.4em;
+  display: flex;
+  width: 8rem;
+  justify-content: space-between;
   h2#sr-logo{
     color: ${colors.primaryColor};
   }
@@ -64,12 +69,34 @@ const LinkAuth = styled(Link)`
 
 
 function Header() {
+  const [currentTime, setCurrentTime] = useState(getCurrentTime);
+  
   // Date & time manipulation
-  const date = new Date()
-  const month = months[date.getMonth()]
-  const day = days[date.getDay()]
-  const hour = date.getHours()
-  const minutes = date.getMinutes()
+  function getCurrentTime() {
+    const date = new Date();
+    const month = months[date.getMonth()];
+    const dayName = days[date.getDay()];
+    const day = date.getDate();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    
+    const hours = (hour < 10) ? '0' + hour : hour;
+    const minutes = (minute < 10) ? '0' + minute : minute;
+    
+    return `${hours}:${minutes} - ${dayName}. ${day} ${month}.`;
+  }
+  
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(getCurrentTime());
+    }, 30000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
 
   // check if user is authenticated
   const isAuthenticated = false
@@ -80,6 +107,10 @@ function Header() {
       <div>
         <i className="bi bi-start-fill"></i>
           <LogoStyle to="/">
+            <img 
+              src={logo} 
+              alt="sirius-logo"
+              style={{width: "2rem"}} />
             <h2 id='sr-logo'>Sirius.</h2>
           </LogoStyle>
       </div>
@@ -87,7 +118,9 @@ function Header() {
       {/* Navbar & actions section */}
       <ActionStyle>
         <NavStyle>
-          <span>{hour}:{minutes} &#xB7; {day}. 29 {month}.</span>
+          <span>
+            {currentTime}
+          </span>
           <Link to="/faq">
             <i className="bi bi-question-circle"></i>
           </Link>
@@ -108,10 +141,10 @@ function Header() {
               <i className="bi bi-person-circle"></i>
             </Link>
           </div> : <div>
-            <LinkAuth to="/sign-up">
+          <LinkAuth to="/authentification/sign">
               <span>S'inscrire</span>
             </LinkAuth>
-            <LinkAuth to="/login">
+            <LinkAuth to="/authentification/login">
               <span>Se connecter</span>
             </LinkAuth>
           </div>}

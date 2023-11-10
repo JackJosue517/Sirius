@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { svgItems } from './../../data/svgItems'
-import { useState } from 'react'
-import colors from './../../utils/style/colors'
+import { useEffect, useState } from 'react'
+import colors from '../../style/colors'
 
 const ContainerStyle = styled.div`
   margin: 15px 10px 20px 0px;
@@ -92,15 +92,15 @@ const BoxStyle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  i:first-child{
-    font-weight: 600;
+
+  i.bi-chevron-right{
     cursor: pointer;
-    ${({idx}) => idx > 0 ? `color: ${colors.primaryColor};` : `color: ${colors.darkGray};`}
+    color: color: ${props => props.color};
   }
-  i:last-child{
-    font-weight: 600;
+
+  i.bi-chevron-left{
     cursor: pointer;
-    ${({idx}) => parseInt(idx) < 2 ? `color: ${colors.primaryColor};` : `color: ${colors.darkGray};`}
+    color: ${props => props.color};
   }
 `
 const BoxDescStyle = styled.div`
@@ -118,16 +118,49 @@ const BoxDescStyle = styled.div`
   }
 `
 
+const CarousselStyle = styled.div`
+  ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button.active{
+    background-color: ${colors.primaryColor}; 
+    border-color: ${colors.primaryColor}; 
+  }
+  
+  button {
+    cursor: pointer;
+    margin: 0 4px;
+    width: 6px;
+    height: 6px;
+    border: 1px solid ${colors.darkGray};
+    border-radius: 50%;
+    background-color: ${colors.disabledColor};
+    display: inline-block;
+  }
+`
+
 
 function Home() {
   const [index, setIndex] = useState(0)
+  const [leftChevronColor, setLeftChevronColor] = useState(colors.primaryColor);
+  const [rightChevronColor, setRightChevronColor] = useState(colors.primaryColor);
+
+  useEffect(() => {
+    setLeftChevronColor(index === 0 ? colors.darkGray : colors.primaryColor);
+    setRightChevronColor(index === svgItems.length - 1 ? colors.darkGray : colors.primaryColor);
+  }, [index]);
 
   // handle right or left svg click
   function handleClick(e) {
-    if(e.target.className === 'bi bi-chevron-left'){
-      index === 0 ? setIndex(0) : setIndex(index - 1)
-    } else if (e.target.className === 'bi bi-chevron-right'){
-      index === 2 ? setIndex(2) : setIndex(index + 1)
+    // Calcul du nouvel index en fonction de la direction
+    const newIndex = index + e;
+
+    if (newIndex >= 0 && newIndex < svgItems.length) {
+      setIndex(newIndex);
     }
   }
 
@@ -169,24 +202,49 @@ function Home() {
         </ActionStyle>
 
         <p>
-          <Link to="/about-us" style={{textDecoration: "none"}}>En savoir plus sur Sirius</Link> 
+          <Link to="/about-us" style={{textDecoration: "none"}}>En savoir plus Sur Sirius</Link>
         </p>
       </InfoStyle>
 
       <CardStyle>
         <BoxStyle>
-          <i className="bi bi-chevron-left" onClick={(e) => handleClick(e)} idx={index}></i>
+          <i 
+            className="bi bi-chevron-left" 
+            style={{color:leftChevronColor}}
+            onClick={() => handleClick(-1)} 
+            idx={index}></i>
+            
           <img
             id='sr-svg'
             src={svgItems[index].image}
             alt="Illustration SVG pour la fonctionnalité"
           />
-          <i className="bi bi-chevron-right" onClick={(e) => handleClick(e)} idx={index}></i>
+
+          <i 
+            className="bi bi-chevron-right"
+            style={{color:rightChevronColor}}
+            onClick={() => handleClick(1)} 
+            idx={index}></i>
         </BoxStyle>
+
         <BoxDescStyle>
           <h2>{svgItems[index].title}</h2>
           <p>{svgItems[index].description}</p>
-          <i className="bi bi-three-dots" id='sr-thr'></i>
+          
+          <CarousselStyle>
+            <ul>
+            {Array(svgItems.length)
+            .fill()
+            .map((_, i) => (
+              <li key={i}>
+                <button
+                  className={i === index ? 'active' : ''}
+                  onClick={() => setIndex(i)}
+                ></button>
+              </li>
+            ))}
+            </ul>
+          </CarousselStyle>
         </BoxDescStyle>  
       </CardStyle>
     </ContainerStyle>
