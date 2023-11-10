@@ -169,7 +169,7 @@ function Home() {
         </ActionStyle>
 
         <p>
-          <Link to="/about-us" style={{textDecoration: "none"}}>En savoir plus</Link> sur Sirius
+          <Link to="/about-us" style={{textDecoration: "none"}}>En savoir plus sur Sirius</Link> 
         </p>
       </InfoStyle>
 
