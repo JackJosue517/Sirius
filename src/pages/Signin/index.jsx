@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import colors from '../../../utils/style/colors';
+import colors from './../../utils/style/colors';
 import { useForm } from 'react-hook-form';
 const Container = styled.div`
     display: flex;

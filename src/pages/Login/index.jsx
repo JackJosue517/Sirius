@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import colors from '../../../utils/style/colors';
+import colors from './../../utils/style/colors';
 
 const Container = styled.div`
     display: flex;

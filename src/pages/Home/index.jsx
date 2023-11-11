@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { svgItems } from './../../data/svgItems'
 import { useEffect, useState } from 'react'
-import colors from '../../style/colors'
+import colors from './../../utils/style/colors'
 
 const ContainerStyle = styled.div`
   margin: 15px 10px 20px 0px;

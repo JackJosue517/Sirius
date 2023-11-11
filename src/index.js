@@ -7,8 +7,8 @@ import Home from './pages/Home/'
 import Faq from './pages/FAQ/'
 import Header from './components/Header/'
 import Error from './components/Error/'
-import Sign from './pages/Authentification/signin/sign'
-import Login from './pages/Authentification/login/login'
+import Sign from './pages/Signin/'
+import Login from './pages/Login/'
 
 const GlobalStyle = createGlobalStyle`
   *{

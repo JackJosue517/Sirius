@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { months, days } from './../../data/date'
 import styled from 'styled-components'
-import colors from '../../style/colors'
-import logo from './../../assets/Sirius.png'
+import colors from '../../utils/style/colors'
+import logo from './../../assets/sirius-1.jpg'
 
 const HeaderStyle = styled.header`
   display: flex;
