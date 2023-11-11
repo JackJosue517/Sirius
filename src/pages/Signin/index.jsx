@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import colors from '../../../utils/style/colors';
-import { useForm } from 'react-hook-form';
-import facebook from './../../../assets/facebook.png'
-import google from './../../../assets/google.png';
-import git from './../../../assets/git.png';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import colors from './../../utils/style/colors';
+import facebook from './../../assets/facebook.png'
+import google from './../../assets/google.png';
+import git from './../../assets/git.png';
 
 
 const Container = styled.div`
