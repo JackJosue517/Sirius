@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import colors from './../../utils/style/colors';
+import colors from '../../../utils/style/colors';
 import { useForm } from 'react-hook-form';
+import facebook from './../../../assets/facebook.png'
+import google from './../../../assets/google.png';
+import git from './../../../assets/git.png';
+import { useState } from 'react';
+
+
 const Container = styled.div`
     display: flex;
     justify-content: center;
@@ -9,12 +15,12 @@ const Container = styled.div`
     height: 80vh;
 `
 const Inscription = styled.div`
-    width: 360px;
+    width: 350px;
     padding: 2rem 2rem;
     border-radius: 1rem;
     height: 550px;
     margin-top: 3rem;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 2);
+    box-shadow: 0 0 25px ${colors.lightGray};
 `
 const Title = styled.h1`
     font-weight: bold;
@@ -24,7 +30,7 @@ const Title = styled.h1`
 const Form = styled.div`
     position: relative;
     height: 50px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.4rem;
 
     input{
         position: absolute;
@@ -62,7 +68,7 @@ const Form = styled.div`
         pointer-events: none;
     }
 
-    i: first-child{
+    label + i{
         position: absolute;
         left: 0.5rem;
         top: 0.8rem;
@@ -73,25 +79,33 @@ const Form = styled.div`
 
     #conf{
         position:absolute;
-        color: ${colors.primaryColor};
+        right: 0;
+        color: ${colors.confirmColor};
     }
 
-    input:focus + label{
+    input:not(:placeholder-shown) + label {
+        top: -.5rem;
+        left: .8rem;
+        font-size: 0.75rem;
+        width: fit-content;
+        height: fit-content;
+        z-index: 10;
+    }    
+
+    input:focus + label {
         top: -.5rem;
         left: .8rem;
         color: ${colors.primaryColor};
         font-size: .8rem;
-        font-weight: 500;
         width: fit-content;
         height: fit-content;
         z-index: 10;
     }
     
-    input:not(:placeholder-shown)input:not(:focus)+ label{
+    input:not(:placeholder-shown) input:not(:focus) + label {
         top: -.5rem;
         left: .8rem;
         font-size: 0.75rem;
-        font-weight: 500;
         z-index: 10;
     }
     
@@ -114,6 +128,7 @@ const Small = styled.small`
     font-size: 0.78rem;
     width: 100%;
     justify-content: center;
+    margin-bottom: 1rem;
 `
 const Anchor = styled(Link)`
     cursor: pointer;
@@ -142,11 +157,30 @@ const Politics = styled.div`
         font-size: 0.8rem;
         cursor: pointer;
     }
-` 
+`
+const SocialConnect = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
+const LogoStyle = styled.span`
+    img{
+        width: 25px;
+        height: 25px;
+        margin-left: 0.4rem;
+    }
+`
 
 function Sign() {
 
-    const {handleSubmit, register, formState : {errors}} = useForm()
+    const {handleSubmit, register, watch, formState : {errors}} = useForm()
+    const [passwordMatch, setPasswordMatch] = useState(false);
+
+    const checkPassword = (value) => {
+      const password = watch('pass');
+      setPasswordMatch(value === password);
+    };
 
     const onSubmit =(data)=>{
         console.log(data);
@@ -157,13 +191,13 @@ function Sign() {
             <Inscription>
                 <Title>Inscription</Title>
                 
-                <form action="#" method="post" onSubmit={handleSubmit(onSubmit)}>
+                <form action="#" method="post" onSubmit={handleSubmit(onSubmit)} >
                     
                     <Form>
                         <input type="text"
                             id="nom" 
                             placeholder="nom d'utilisateur" 
-                            {...register("name", {required : true})}
+                            {...register("name", {required : true, })}
                         />
                         {errors.name && <p>Veuillez renseignez votre nom</p>}
                         <label htmlFor="name">nom d'utilisateur</label>
@@ -182,25 +216,40 @@ function Sign() {
                     </Form>
 
                     <Form>
-                        <input type="password" 
-                            id="pass" 
-                            placeholder= "mot de passe"
-                            {...register("pass", {required : true})} />
-                        <label htmlfor="pass">mot de passe</label>
-                        {errors.pass && <p>Veuillez renseignez un mot de passe</p>}
-                        <i className='bi bi-lock'></i>
-                        <i className='bi bi-check2-circle' id='conf'></i>
+                        <input
+                            type="password"
+                            id="pass"
+                            placeholder="mot de passe"
+                            {...register('pass', { required: true })}
+                            onChange={(e) => {
+                                checkPassword(e.target.value);
+                            }}
+                        />
+                        {passwordMatch && (
+                            <i className='bi bi-check2-circle' id="conf"></i>
+                        )}
+                        <label htmlFor="pass">
+                            mot de passe
+                        </label>
+                        <i className="bi bi-lock"></i>
                     </Form>
-                    
+
                     <Form>
-                        <input type="password" 
-                            id="pass2" 
-                            placeholder= "mot de passe"
-                            {...register("pass2", {required : true})} />
-                        <label htmlfor="pass2">mot de passe</label>
-                        {errors.pass && <p>Veuillez confimer votre mot de passe</p>}
-                        <i className='bi bi-lock'></i>
-                        <i className='bi bi-check2-circle' id="conf"></i>
+                        <input
+                            type="password"
+                            id="pass2"
+                            placeholder="mot de passe"
+                            {...register('pass2', { required: true })}
+                            onChange={(e) => {
+                                checkPassword(e.target.value);
+                            }}
+                        />
+                        {passwordMatch && (
+                            <i className='bi bi-check2-circle' id="conf"></i>
+                        )}
+                        {errors.pass2 && <p>Veuillez confirmer votre mot de passe</p>}
+                        <label htmlFor="pass2">confirmation mot de passe</label>
+                        <i className="bi bi-lock"></i>
                     </Form>
 
                     <Politics>
@@ -216,9 +265,29 @@ function Sign() {
                         <Anchor to="/auth/login">Se connecter</Anchor>
                     </span>
                 </Small>
+
+                <SocialConnect>
+                    <h5>Ou continuer avec</h5>
+                        <LogoStyle>
+                            <Link to = "/fac">
+                                <img src={facebook} alt="logo-windows" />
+                            </Link>
+                        </LogoStyle>
+                        <LogoStyle>
+                            <Link to= "/go">
+                                <img src={google} alt="logo-gmail"/>
+                            </Link>
+                        </LogoStyle>
+                        <LogoStyle>
+                            <Link to = "/gi">
+                                <img src={git} alt="logo-git" />
+                            </Link>
+                        </LogoStyle>
+                </SocialConnect>
+
             </Inscription>
         </Container>
     )
   }
   
-  export default Sign
+  export default Sign;
