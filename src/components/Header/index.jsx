@@ -141,10 +141,10 @@ function Header() {
               <i className="bi bi-person-circle"></i>
             </Link>
           </div> : <div>
-          <LinkAuth to="/authentification/sign">
+          <LinkAuth to="/sign-in">
               <span>S'inscrire</span>
             </LinkAuth>
-            <LinkAuth to="/authentification/login">
+            <LinkAuth to="/login">
               <span>Se connecter</span>
             </LinkAuth>
           </div>}

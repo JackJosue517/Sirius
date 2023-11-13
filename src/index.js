@@ -31,8 +31,8 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/faq" element={<Faq />} />
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/sign" element={<Sign />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/sign-in" element={<Sign />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>
