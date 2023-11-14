@@ -32,7 +32,7 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/sign-in" element={<Sign />} />
+        <Route path="/sign-up" element={<Sign />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>

@@ -90,7 +90,7 @@ function Header() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTime(getCurrentTime());
-    }, 30000);
+    }, 1000);
 
     return () => {
       clearInterval(intervalId);
@@ -141,7 +141,7 @@ function Header() {
               <i className="bi bi-person-circle"></i>
             </Link>
           </div> : <div>
-          <LinkAuth to="/sign-in">
+          <LinkAuth to="/sign-up">
               <span>S'inscrire</span>
             </LinkAuth>
             <LinkAuth to="/login">

@@ -15,7 +15,7 @@ const Container = styled.div`
     height: 80vh;
 `
 const Inscription = styled.div`
-    width: 350px;
+    width: 450px;
     padding: 2rem 2rem;
     border-radius: 1rem;
     height: 550px;
@@ -77,8 +77,9 @@ const Form = styled.div`
         font-size: 1rem;
     }
 
-    #conf{
+    #passwd1, #passwd2{
         position:absolute;
+        // z-index: 99;
         right: 0;
         color: ${colors.confirmColor};
     }
@@ -175,11 +176,15 @@ const LogoStyle = styled.span`
 function Sign() {
 
     const {handleSubmit, register, watch, formState : {errors}} = useForm()
-    const [passwordMatch, setPasswordMatch] = useState(false);
+    const [passwordMatch, setPasswordMatch] = useState(false)
 
     const checkPassword = (value) => {
       const password = watch('pass');
-      setPasswordMatch(value === password);
+      if(value === password){
+        setPasswordMatch(true)
+      }else{
+        setPasswordMatch(false)
+      }
     };
 
     const onSubmit =(data)=>{
@@ -196,22 +201,22 @@ function Sign() {
                     <Form>
                         <input type="text"
                             id="nom" 
-                            placeholder="nom d'utilisateur" 
+                            placeholder="Veuillez entrer votre nom d'utilisateur" 
                             {...register("name", {required : true, })}
                         />
                         {errors.name && <p>Veuillez renseignez votre nom</p>}
-                        <label htmlFor="name">nom d'utilisateur</label>
+                        <label htmlFor="name">Nom d'utilisateur</label>
                         <i className='bi bi-person'></i>
                     </Form>
                     
                     <Form>
                         <input type="email" 
                             id="mail" 
-                            placeholder="adresse mail" 
+                            placeholder="Veuillez entrer votre adresse mail" 
                             {...register("email", {required: true})}
                         />
                         {errors.email && <p>Veuillez renseignez votre adresse mail</p> }
-                        <label htmlFor="mail">addresse mail</label>
+                        <label htmlFor="mail">Addresse mail</label>
                         <i className='bi bi-envelope'></i>
                     </Form>
 
@@ -226,11 +231,11 @@ function Sign() {
                             }}
                         />
                         {passwordMatch && (
-                            <i className='bi bi-check2-circle' id="conf"></i>
+                            <i className='bi bi-check2-circle' id="passwd1"></i>
                         )}
-                        <label htmlFor="pass">
+                        {!passwordMatch && (<label htmlFor="pass">
                             mot de passe
-                        </label>
+                        </label>)}
                         <i className="bi bi-lock"></i>
                     </Form>
 
@@ -241,14 +246,14 @@ function Sign() {
                             placeholder="mot de passe"
                             {...register('pass2', { required: true })}
                             onChange={(e) => {
-                                checkPassword(e.target.value);
+                                checkPassword(e.target.value)
                             }}
                         />
                         {passwordMatch && (
-                            <i className='bi bi-check2-circle' id="conf"></i>
+                            <i className='bi bi-check2-circle' id="passwd2"></i>
                         )}
                         {errors.pass2 && <p>Veuillez confirmer votre mot de passe</p>}
-                        <label htmlFor="pass2">confirmation mot de passe</label>
+                        {!passwordMatch && (<label htmlFor="pass2">confirmation mot de passe</label>)}
                         <i className="bi bi-lock"></i>
                     </Form>
 
@@ -262,24 +267,24 @@ function Sign() {
 
                 <Small>
                     <span>Déjà incrit ? 
-                        <Anchor to="/auth/login">Se connecter</Anchor>
+                        <Anchor to="/login">Se connecter</Anchor>
                     </span>
                 </Small>
 
                 <SocialConnect>
                     <h5>Ou continuer avec</h5>
                         <LogoStyle>
-                            <Link to = "/fac">
+                            <Link to = "/facebook">
                                 <img src={facebook} alt="logo-windows" />
                             </Link>
                         </LogoStyle>
                         <LogoStyle>
-                            <Link to= "/go">
+                            <Link to= "/google">
                                 <img src={google} alt="logo-gmail"/>
                             </Link>
                         </LogoStyle>
                         <LogoStyle>
-                            <Link to = "/gi">
+                            <Link to = "/git">
                                 <img src={git} alt="logo-git" />
                             </Link>
                         </LogoStyle>

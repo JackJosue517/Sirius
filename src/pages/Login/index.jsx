@@ -13,7 +13,7 @@ const Container = styled.div`
     height: 80vh;
 `
 const Connexion = styled.div`
-    width: 350px;
+    width: 450px;
     padding: 4rem 2rem;
     border-radius: 1rem;
     box-shadow: 0 0 25px ${colors.lightGray}
@@ -184,21 +184,21 @@ function Login() {
                 <form action="#" method="post" onSubmit={handleSubmit(onSubmit)} >
                     <Form>
                         <input type="text"
-                            id="nom" 
+                            id="username" 
                             placeholder="nom d'utilisateur" 
                             {...register("name", {required : true, })}
                         />
                         {errors.name && <p>Veuillez renseignez votre nom</p>}
-                        <label htmlFor="name">nom d'utilisateur</label>
+                        <label htmlFor="username">Nom d'utilisateur</label>
                         <i className='bi bi-person'></i>
                     </Form>
 
                     <Form>
                         <input type="password" 
-                            id="pass" 
+                            id="password" 
                             placeholder= "mot de passe"
                             {...register("pass", {required : true})} />
-                        <label htmlfor="pass">mot de passe</label>
+                        <label htmlFor="password">Mot de passe</label>
                         {errors.pass && <p>Veuillez renseignez un mot de passe</p>}
                         <i className='bi bi-lock'></i>
                     </Form>
@@ -210,7 +210,7 @@ function Login() {
                             <label htmlFor="rappel">Se souvenir de moi</label>
                         </div>
                         <small>
-                            <Anchor to="/recup">
+                            <Anchor to="/recover">
                                 <span>Mot de passe oublié ?</span>
                             </Anchor>
                         </small>
@@ -221,7 +221,7 @@ function Login() {
 
                 <Small>
                     Pas de compte ? 
-                    <Anchor to="/auth/sign">
+                    <Anchor to="/sign-up">
                         <span>S'incrire maintenant</span>
                     </Anchor>
                 </Small>
@@ -229,17 +229,17 @@ function Login() {
                 <SocialConnect>
                     <h5>Ou continuer avec</h5>
                         <LogoStyle>
-                            <Link to = "/fac">
+                            <Link to = "/facebook">
                                 <img src={facebook} alt="logo-windows" />
                             </Link>
                         </LogoStyle>
                         <LogoStyle>
-                            <Link to= "/go">
+                            <Link to= "/google">
                                 <img src={google} alt="logo-gmail"/>
                             </Link>
                         </LogoStyle>
                         <LogoStyle>
-                            <Link to = "/gi">
+                            <Link to = "/git">
                                 <img src={git} alt="logo-git" />
                             </Link>
                         </LogoStyle>
