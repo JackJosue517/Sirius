@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     font-family: 'Fira Sans', 'Poppins', 'Oxygen', 'Cantarell', sans-serif; 
     font-size: 1rem;
+    font-weight: 600;
   }
 `
 

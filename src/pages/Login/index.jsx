@@ -80,6 +80,7 @@ const Form = styled.div`
         width: fit-content;
         height: fit-content;
         z-index: 10;
+        background: #fff;
     }    
 
     input:focus + label {
@@ -90,6 +91,7 @@ const Form = styled.div`
         width: fit-content;
         height: fit-content;
         z-index: 10;
+        background: #fff;
     }
     
     input:not(:placeholder-shown) input:not(:focus) + label {
@@ -137,6 +139,7 @@ const Small = styled.small`
 const Anchor = styled(Link)`
     cursor: pointer;
     text-decoration: none;
+    color: ${colors.primaryColor};
 ` 
 const Button = styled.button`
     display: block;
@@ -155,17 +158,20 @@ const Button = styled.button`
 
 const SocialConnect = styled.div`
     display: flex;
+    width: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 `
+
 
 const LogoStyle = styled.span`
     img{
-        width: 25px;
-        height: 25px;
-        margin-left: 0.4rem;
+        width: 35px;
+        height: 35px;
+        margin-left: 1.4rem;
     }
 `
+
 
 function Login() {
 
@@ -185,7 +191,7 @@ function Login() {
                     <Form>
                         <input type="text"
                             id="username" 
-                            placeholder="nom d'utilisateur" 
+                            placeholder="" 
                             {...register("name", {required : true, })}
                         />
                         {errors.name && <p>Veuillez renseignez votre nom</p>}
@@ -196,7 +202,7 @@ function Login() {
                     <Form>
                         <input type="password" 
                             id="password" 
-                            placeholder= "mot de passe"
+                            placeholder= ""
                             {...register("pass", {required : true})} />
                         <label htmlFor="password">Mot de passe</label>
                         {errors.pass && <p>Veuillez renseignez un mot de passe</p>}
@@ -216,13 +222,13 @@ function Login() {
                         </small>
                     </ActionStyle>
 
-                    <Button>connexion</Button>                
+                    <Button>Se connecter</Button>                
                 </form>
 
                 <Small>
                     Pas de compte ? 
                     <Anchor to="/sign-up">
-                        <span>S'incrire maintenant</span>
+                        <span>&nbsp;&nbsp; S'incrire maintenant</span>
                     </Anchor>
                 </Small>
 
