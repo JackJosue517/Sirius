@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Sirius - React Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Le codebase du projet a été initialisé avec [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Scripts d'exécution configurés
 
-In the project directory, you can run:
+Dans le répertoire du projet, vous pouvez exécuter:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Exécuter le projet e mode dévéloppement.\
+Ouvrir [http://localhost:3000](http://localhost:3000) pour avoir le rendu web.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+La page se recharge dès que les modifications sont apportées.\
+Vous pouvez également voir les erreurs de compilation dans la console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Démarre les tests dans le mode interactive.\
+Voir la section à propos [running tests](https://facebook.github.io/create-react-app/docs/running-tests) pour plus d'informations.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construit l'application pour la production dans le dossier `build`.\
+La compilation est minifié et les noms des fichiers sont hachés.\
+Votre application est prêt à être déployée!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Voir la section [deployment](https://facebook.github.io/create-react-app/docs/deployment) pour plus d'informations.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Nous avons désactivé pour le moment l'éxécution de ce script.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Apprendre plus
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Vous pouvez en apprendre plus sur [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Pour apprendre React, checker [React documentation](https://reactjs.org/).
 
-## Learn More
+### Progressive Web App
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Cette section a été déplacée vers: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Configuration avancée
 
-### Code Splitting
+La section a été déplacée vers: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Déploiement
 
-### Analyzing the Bundle Size
+La section a été déplacée vers: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### `npm run build` échoue lors de la compression
 
-### Making a Progressive Web App
+La section a été déplacée vers: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Technologies :
 
-### Advanced Configuration
+- REACT
+- Avoir des notions basiques sur l'utilisation de Git et Github
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Bibliothèques Tierces :
 
-### Deployment
+- REACT-ROUTER: Latest
+- REACT-HOOK-FORM: Latest
+- STYLED-COMPONENTS: Latest
+- WEBRTC: Latest
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contribution
 
-### `npm run build` fails to minify
+Merci de lire les fichiers :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [CONTRIBUTING.md](https://github.com/JackJosue517/sirius/blob/main/CONTRIBUTING.md)
+- [CODE_OF_CONDUCT.md](https://github.com/JackJosue517/sirius/blob/main/CONTRIBUTING.md)
+
+## License
+
+Ce projet est sous la licence GNU GPL V3 - voir le fichier [LICENSE](LICENSE) pour plus de détails
