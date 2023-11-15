@@ -79,8 +79,8 @@ const Form = styled.div`
 
     #passwd1, #passwd2{
         position:absolute;
-        // z-index: 99;
-        right: 0;
+        right: 5px;
+        z-index: 999;
         color: ${colors.confirmColor};
     }
 
@@ -101,6 +101,7 @@ const Form = styled.div`
         width: fit-content;
         height: fit-content;
         z-index: 10;
+        background: #fff;
     }
     
     input:not(:placeholder-shown) input:not(:focus) + label {
@@ -134,6 +135,7 @@ const Small = styled.small`
 const Anchor = styled(Link)`
     cursor: pointer;
     text-decoration: none;
+    color: ${colors.primaryColor};
 ` 
 const Button = styled.button`
     display: block;
@@ -147,6 +149,7 @@ const Button = styled.button`
     font-size: 1rem;
     cursor: pointer;
     margin-top: 0.5rem;
+    font-family: 'Fira Sans';
 `
 const Politics = styled.div`
     input{
@@ -161,15 +164,16 @@ const Politics = styled.div`
 `
 const SocialConnect = styled.div`
     display: flex;
+    width: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 `
 
 const LogoStyle = styled.span`
     img{
-        width: 25px;
-        height: 25px;
-        margin-left: 0.4rem;
+        width: 35px;
+        height: 35px;
+        margin-left: 1.4rem;
     }
 `
 
@@ -201,8 +205,8 @@ function Sign() {
                     <Form>
                         <input type="text"
                             id="nom" 
-                            placeholder="Veuillez entrer votre nom d'utilisateur" 
                             {...register("name", {required : true, })}
+                            placeholder=""
                         />
                         {errors.name && <p>Veuillez renseignez votre nom</p>}
                         <label htmlFor="name">Nom d'utilisateur</label>
@@ -212,48 +216,45 @@ function Sign() {
                     <Form>
                         <input type="email" 
                             id="mail" 
-                            placeholder="Veuillez entrer votre adresse mail" 
+                            placeholder=""
                             {...register("email", {required: true})}
                         />
                         {errors.email && <p>Veuillez renseignez votre adresse mail</p> }
-                        <label htmlFor="mail">Addresse mail</label>
+                        <label htmlFor="mail">Adresse mail</label>
                         <i className='bi bi-envelope'></i>
                     </Form>
 
                     <Form>
+                        {passwordMatch && (
+                            <i className='bi bi-check2-circle' id="passwd1"></i>)}
                         <input
                             type="password"
                             id="pass"
-                            placeholder="mot de passe"
+                            placeholder=""
                             {...register('pass', { required: true })}
                             onChange={(e) => {
                                 checkPassword(e.target.value);
                             }}
                         />
-                        {passwordMatch && (
-                            <i className='bi bi-check2-circle' id="passwd1"></i>
-                        )}
-                        {!passwordMatch && (<label htmlFor="pass">
-                            mot de passe
-                        </label>)}
+                        <label htmlFor="pass">Mot de passe</label>
                         <i className="bi bi-lock"></i>
                     </Form>
 
                     <Form>
+                        {passwordMatch && (
+                            <i className='bi bi-check2-circle' id="passwd2"></i>
+                        )}
                         <input
                             type="password"
                             id="pass2"
-                            placeholder="mot de passe"
+                            placeholder=""
                             {...register('pass2', { required: true })}
                             onChange={(e) => {
                                 checkPassword(e.target.value)
                             }}
                         />
-                        {passwordMatch && (
-                            <i className='bi bi-check2-circle' id="passwd2"></i>
-                        )}
                         {errors.pass2 && <p>Veuillez confirmer votre mot de passe</p>}
-                        {!passwordMatch && (<label htmlFor="pass2">confirmation mot de passe</label>)}
+                        <label htmlFor="pass2">Confirmation du mot de passe</label>
                         <i className="bi bi-lock"></i>
                     </Form>
 
@@ -262,17 +263,17 @@ function Sign() {
                         <label htmlFor="politique">Accepter les politiques de confidentialités</label>
                     </Politics>
 
-                    <Button>s'inscrire</Button>                
+                    <Button>Ouvrir son compte</Button>                
                 </form>
 
                 <Small>
-                    <span>Déjà incrit ? 
-                        <Anchor to="/login">Se connecter</Anchor>
+                    <span>Déjà inscrit ? 
+                        <Anchor to="/login">&nbsp;&nbsp; Se connecter</Anchor>
                     </span>
                 </Small>
 
                 <SocialConnect>
-                    <h5>Ou continuer avec</h5>
+                    <h5>Ou continuer avec</h5>&nbsp;&nbsp;
                         <LogoStyle>
                             <Link to = "/facebook">
                                 <img src={facebook} alt="logo-windows" />
