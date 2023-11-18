@@ -44,9 +44,7 @@ const Form = styled.div`
         background: none;
         z-index: 1;
         padding-left: 2rem;
-    }
-
-    input::placeholder{
+    }input::placeholder{
         font-size: 1rem;
         position: absolute;
         left: 2rem;
@@ -91,6 +89,7 @@ const Form = styled.div`
         width: fit-content;
         height: fit-content;
         z-index: 10;
+        background: #fff;
     }    
 
     input:focus + label {
