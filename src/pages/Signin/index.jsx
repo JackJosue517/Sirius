@@ -13,13 +13,13 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 80vh;
+    margin-top: 3rem;
 `
 const Inscription = styled.div`
     width: 450px;
     padding: 2rem 2rem;
     border-radius: 1rem;
     height: 550px;
-    margin-top: 3rem;
     box-shadow: 0 0 25px ${colors.lightGray};
 `
 const Title = styled.h1`
@@ -89,7 +89,7 @@ const Form = styled.div`
         width: fit-content;
         height: fit-content;
         z-index: 10;
-        /*background: #fff;*/
+        background: #fff;
     }    
 
     input:focus + label {
@@ -100,7 +100,7 @@ const Form = styled.div`
         width: fit-content;
         height: fit-content;
         z-index: 10;
-        /*background: #fff;*/
+        background: #fff;
     }
     
     input:not(:placeholder-shown) input:not(:focus) + label {
