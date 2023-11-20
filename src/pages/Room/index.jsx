@@ -1,6 +1,29 @@
 /* eslint-disable jsx-a11y/alt-text */
 import styled from 'styled-components'
 import logo from './../../assets/sirius.png'
+import live from './../../assets/live.png'
+import video from './../../assets/video.png'
+import message from './../../assets/message.png'
+import notification from './../../assets/notification.png'
+import users from './../../assets/users.png'
+import setting from './../../assets/setting.png'
+import search from './../../assets/search.png'
+import menu from './../../assets/menu.png'
+import hostimg from './../../assets/image.png'
+import user1 from './../../assets/user-1.png'
+import user2 from './../../assets/user-2.png'
+import user3 from './../../assets/user-3.png'
+import user4 from './../../assets/user-4.png'
+import people1 from './../../assets/people-1.png'
+import people2 from './../../assets/people-2.png'
+import people3 from './../../assets/people-3.png'
+import people4 from './../../assets/people-4.png'
+import people5 from './../../assets/people-5.png'
+import chat from './../../assets/chat.png'
+import disconnect from './../../assets/disconnect.png'
+import call from './../../assets/call.png'
+import mic from './../../assets/mic.png'
+import cast from './../../assets/cast.png'
 
 const RoomHeader = styled.div`
   width: 100%;
@@ -155,61 +178,61 @@ function Room() {
         <AppLogo src={logo} />
         <RoomSubNav>
           <li>
-            <img src="./images/live.png" class="active" />
+            <img src={live} class="active" />
           </li>
           <li>
-            <img src="./images/video.png" />
+            <img src={video} />
           </li>
           <li>
-            <img src="./images/message.png" />
+            <img src={message} />
           </li>
           <li>
-            <img src="./images/notification.png" />
+            <img src={notification} />
           </li>
           <li>
-            <img src="./images/users.png" />
+            <img src={users} />
           </li>
           <li>
-            <img src="./images/setting.png" />
+            <img src={setting} />
           </li>
         </RoomSubNav>
       </RoomNav>
 
       <RoomContainer>
         <div class="top-icons">
-          <img src="./images/search.png" />
-          <img src="./images/menu.png" />
+          <img src={search} />
+          <img src={menu} />
         </div>
 
         <div class="row">
           <div class="col-">
-            <img src="./images/image.png" class="host-img" />
+            <img src={hostimg} class="host-img" />
             <div class="controls">
-              <img src="./images/chat.png" />
-              <img src="./images/disconnect.png" />
-              <img src="./images/call.png" class="call-icon" />
-              <img src="./images/mic.png" />
-              <img src="./images/cast.png" />
+              <img src={chat} />
+              <img src={disconnect} />
+              <img src={call} class="call-icon" />
+              <img src={mic} />
+              <img src={cast} />
             </div>
           </div>
           <div class="col-2">
             <div class="joined">
               <p>Ayant rejoint</p>
               <div>
-                <img src="./images/people-1.png" />
-                <img src="./images/people-2.png" />
-                <img src="./images/people-3.png" />
-                <img src="./images/people-4.png" />
-                <img src="./images/people-5.png" />
+                <img src={people1} />
+                <img src={people2} />
+                <img src={people3} />
+                <img src={people4} />
+                <img src={people5} />
               </div>
             </div>
             <div class="invite">
               <p>Inviter plus de personnes</p>
               <div>
-                <img src="./images/user-1.png" />
-                <img src="./images/user-2.png" />
-                <img src="./images/user-3.png" />
-                <img src="./images/user-4.png" />
+                <img src={user1} />
+                <img src={user2} />
+                <img src={user3} />
+                <img src={user4} />
               </div>
             </div>
           </div>
