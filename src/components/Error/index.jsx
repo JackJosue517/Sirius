@@ -14,7 +14,7 @@ const ContainerStyle = styled.div`
 const ImgCard = styled.div`
   width: 60%;
   height: 100%;
-  img{
+  img {
     width: 100%;
     height: 550px;
   }
@@ -22,33 +22,35 @@ const ImgCard = styled.div`
 
 const DetailsCard = styled.div`
   width: 40%;
-  strong, #actions a:first-child{
+  strong,
+  #actions a:first-child {
     padding: 9px;
     background-color: ${colors.primaryColor};
     border-radius: 15px;
     color: ${colors.backgroundWhite};
     text-decoration: none;
   }
-  h1, p#desc{
+  h1,
+  p#desc {
     margin: 20px auto;
     font-weight: 500;
   }
-  p#actions{
+  p#actions {
     display: flex;
     align-items: center;
   }
-  #actions a:last-child{
+  #actions a:last-child {
     color: ${colors.primaryColor};
     text-decoration: none;
     margin-left: 15px;
   }
-  #social{
+  #social {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 150px;
   }
-  #social i{
+  #social i {
     margin-left: 20px;
     color: ${colors.primaryColor};
     font-size: 1.3em;
@@ -64,32 +66,33 @@ function Error() {
       <DetailsCard>
         <strong>Page non trouvé</strong>
         <h1>Oh non ! Erreur 404</h1>
-        <p id='desc'>
+        <p id="desc">
           Une erreur est survenue au cours de la navigation.
           <br />
           Vous pouvez revenir à la page d'acccueil ou visiter notre crentre
           d'aide
         </p>
-        <p id='actions'>
+        <p id="actions">
           <a href="/">Revenir à la page d'acccueil</a>
           <a href="/faq">Visiter notre centre d'aide</a>
         </p>
-        <p id='social'>
+        <p id="social">
           <span>Suivez-nous sur nos réseaux sociaux</span>
           <span>
-            <Link to='#'>
-              <i className='bi bi-facebook'></i>
+            <Link to="#">
+              <i className="bi bi-facebook"></i>
             </Link>
-            <Link to='#'>
-              <i className='bi bi-youtube'></i>
+            <Link to="#">
+              <i className="bi bi-youtube"></i>
             </Link>
-            <Link to='#'>
-              <i className='bi bi-instagram'></i>
+            <Link to="#">
+              <i className="bi bi-instagram"></i>
             </Link>
-            <Link to='#'>
-              <i className='bi bi-twitter'></i>
+            <Link to="#">
+              <i className="bi bi-twitter"></i>
             </Link>
-          </span>&nbsp;&nbsp;
+          </span>
+          &nbsp;&nbsp;
         </p>
       </DetailsCard>
     </ContainerStyle>
