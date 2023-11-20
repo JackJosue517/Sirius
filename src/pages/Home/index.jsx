@@ -12,18 +12,18 @@ const ContainerStyle = styled.div`
 `
 const InfoStyle = styled.div`
   width: 41%;
-  img#sr-svg{
+  img#sr-svg {
     width: 370px;
     height: 370px;
     border-radius: 50%;
     border: 1px solid ${colors.darkGray};
   }
-  h1{
+  h1 {
     font-size: 2.9em;
     margin-bottom: 20px;
     font-weight: 400;
   }
-  p{
+  p {
     margin-bottom: 50px;
   }
 `
@@ -33,7 +33,7 @@ const ActionStyle = styled.div`
   margin-bottom: 30px;
   border-bottom: 1px solid ${colors.lightGray};
   justify-content: space-between;
-  span#sr-new-meet{
+  span#sr-new-meet {
     background-color: ${colors.primaryColor};
     color: ${colors.backgroundWhite};
     font-weight: 500;
@@ -43,12 +43,12 @@ const ActionStyle = styled.div`
     border-radius: 10px;
     cursor: pointer;
   }
-  span#sr-go-meet{
+  span#sr-go-meet {
     display: flex;
     align-items: center;
   }
-  span#sr-go-meet button{
-    background-color: #FFF;
+  span#sr-go-meet button {
+    background-color: #fff;
     color: ${colors.disabledColor};
     outline: none;
     border: none;
@@ -56,22 +56,22 @@ const ActionStyle = styled.div`
     font-size: 1em;
     cursor: pointer;
   }
-  span#sr-go-meet div{
+  span#sr-go-meet div {
     border: 1px solid ${colors.darkGray};
     border-radius: 2px;
     margin-right: 10px;
     display: flex;
     align-items: center;
   }
-  span#sr-go-meet div:focus-within{
+  span#sr-go-meet div:focus-within {
     border: 1px solid ${colors.primaryColor};
   }
-  span#sr-go-meet div svg{
+  span#sr-go-meet div svg {
     color: ${colors.darkGray};
     margin: 5px;
     font-size: 20px;
   }
-  span#sr-go-meet div input{
+  span#sr-go-meet div input {
     padding: 10px;
     border: none;
     outline: none;
@@ -81,7 +81,7 @@ const ActionStyle = styled.div`
 
 const CardStyle = styled.div`
   width: 40%;
-  img#sr-svg{
+  img#sr-svg {
     width: 370px;
     height: 370px;
     border-radius: 50%;
@@ -95,42 +95,42 @@ const BoxStyle = styled.div`
 
   i.bi-chevron-right{
     cursor: pointer;
-    color: color: ${props => props.color};
+    color: color: ${(props) => props.color};
   }
 
   i.bi-chevron-left{
     cursor: pointer;
-    color: ${props => props.color};
+    color: ${(props) => props.color};
   }
 `
 const BoxDescStyle = styled.div`
   text-align: center;
-  h2{
+  h2 {
     margin: 15px 0px;
     font-weight: 500;
   }
-  p{
+  p {
     margin-bottom: 7px;
   }
-  i#sr-thr{
+  i#sr-thr {
     font-weight: 600;
     font-size: 35px;
   }
 `
 
 const CarousselStyle = styled.div`
-  ul{
+  ul {
     list-style-type: none;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  button.active{
-    background-color: ${colors.primaryColor}; 
-    border-color: ${colors.primaryColor}; 
+  button.active {
+    background-color: ${colors.primaryColor};
+    border-color: ${colors.primaryColor};
   }
-  
+
   button {
     cursor: pointer;
     margin: 0 4px;
@@ -143,24 +143,27 @@ const CarousselStyle = styled.div`
   }
 `
 
-
 function Home() {
   const [index, setIndex] = useState(0)
-  const [leftChevronColor, setLeftChevronColor] = useState(colors.primaryColor);
-  const [rightChevronColor, setRightChevronColor] = useState(colors.primaryColor);
+  const [leftChevronColor, setLeftChevronColor] = useState(colors.primaryColor)
+  const [rightChevronColor, setRightChevronColor] = useState(
+    colors.primaryColor,
+  )
 
   useEffect(() => {
-    setLeftChevronColor(index === 0 ? colors.darkGray : colors.primaryColor);
-    setRightChevronColor(index === svgItems.length - 1 ? colors.darkGray : colors.primaryColor);
-  }, [index]);
+    setLeftChevronColor(index === 0 ? colors.darkGray : colors.primaryColor)
+    setRightChevronColor(
+      index === svgItems.length - 1 ? colors.darkGray : colors.primaryColor,
+    )
+  }, [index])
 
   // handle right or left svg click
   function handleClick(e) {
     // Calcul du nouvel index en fonction de la direction
-    const newIndex = index + e;
+    const newIndex = index + e
 
     if (newIndex >= 0 && newIndex < svgItems.length) {
-      setIndex(newIndex);
+      setIndex(newIndex)
     }
   }
 
@@ -171,16 +174,16 @@ function Home() {
           La visioconférence haute qualité, maintenant disponible pour tous
         </h1>
         <p>
-          Nous avons adapté Sirius, notre service de<br/> visioconférence
-          professionnel sécurisé, afin de le rendre<br/> disponible pour tous.
+          Nous avons adapté Sirius, notre service de
+          <br /> visioconférence professionnel sécurisé, afin de le rendre
+          <br /> disponible pour tous.
         </p>
         <ActionStyle>
-          <span id='sr-new-meet'>
-            <i className="bi bi-node-plus-fill"></i>&nbsp;
-            Nouvelle réunion
+          <span id="sr-new-meet">
+            <i className="bi bi-node-plus-fill"></i>&nbsp; Nouvelle réunion
           </span>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span id='sr-go-meet'>
+          <span id="sr-go-meet">
             <div>
               <span>
                 <svg
@@ -202,50 +205,60 @@ function Home() {
         </ActionStyle>
 
         <p>
-          <Link to="/about-us" style={{textDecoration: "none", color: `${colors['primaryColor']}`}}>En savoir plus sur Sirius</Link>
+          <Link
+            to="/about-us"
+            style={{
+              textDecoration: 'none',
+              color: `${colors['primaryColor']}`,
+            }}
+          >
+            En savoir plus sur Sirius
+          </Link>
         </p>
       </InfoStyle>
 
       <CardStyle>
         <BoxStyle>
-          <i 
-            className="bi bi-chevron-left" 
-            style={{color:leftChevronColor}}
-            onClick={() => handleClick(-1)} 
-            idx={index}></i>
-            
+          <i
+            className="bi bi-chevron-left"
+            style={{ color: leftChevronColor }}
+            onClick={() => handleClick(-1)}
+            idx={index}
+          ></i>
+
           <img
-            id='sr-svg'
+            id="sr-svg"
             src={svgItems[index].image}
             alt="Illustration SVG pour la fonctionnalité"
           />
 
-          <i 
+          <i
             className="bi bi-chevron-right"
-            style={{color:rightChevronColor}}
-            onClick={() => handleClick(1)} 
-            idx={index}></i>
+            style={{ color: rightChevronColor }}
+            onClick={() => handleClick(1)}
+            idx={index}
+          ></i>
         </BoxStyle>
 
         <BoxDescStyle>
           <h2>{svgItems[index].title}</h2>
           <p>{svgItems[index].description}</p>
-          
+
           <CarousselStyle>
             <ul>
-            {Array(svgItems.length)
-            .fill()
-            .map((_, i) => (
-              <li key={i}>
-                <button
-                  className={i === index ? 'active' : ''}
-                  onClick={() => setIndex(i)}
-                ></button>
-              </li>
-            ))}
+              {Array(svgItems.length)
+                .fill()
+                .map((_, i) => (
+                  <li key={i}>
+                    <button
+                      className={i === index ? 'active' : ''}
+                      onClick={() => setIndex(i)}
+                    ></button>
+                  </li>
+                ))}
             </ul>
           </CarousselStyle>
-        </BoxDescStyle>  
+        </BoxDescStyle>
       </CardStyle>
     </ContainerStyle>
   )

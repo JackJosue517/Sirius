@@ -19,7 +19,7 @@ const LogoStyle = styled(Link)`
   display: flex;
   width: 8rem;
   justify-content: space-between;
-  h2#sr-logo{
+  h2#sr-logo {
     color: ${colors.primaryColor};
   }
 `
@@ -33,26 +33,26 @@ const ActionStyle = styled.div`
 const NavStyle = styled.nav`
   display: flex;
   align-items: center;
-  i{
+  i {
     color: ${colors.darkGray};
     font-weight: 600;
     font-size: 1.5em;
     margin-left: 35px;
   }
-  i:hover{
+  i:hover {
     color: ${colors.primaryColor};
   }
 `
 
 const AccountStyle = styled.nav`
   margin-left: 30px;
-  i{
+  i {
     color: ${colors.darkGray};
     font-weight: 600;
     font-size: 1.5em;
     margin-left: 35px;
   }
-  i:hover{
+  i:hover {
     color: ${colors.primaryColor};
   }
 `
@@ -61,42 +61,39 @@ const LinkAuth = styled(Link)`
   color: ${colors.darkGray};
   font-weight: 600;
   margin-left: 35px;
-  &:hover{
+  &:hover {
     color: ${colors.primaryColor};
   }
   text-decoration: none;
 `
 
-
 function Header() {
-  const [currentTime, setCurrentTime] = useState(getCurrentTime);
-  
+  const [currentTime, setCurrentTime] = useState(getCurrentTime)
+
   // Date & time manipulation
   function getCurrentTime() {
-    const date = new Date();
-    const month = months[date.getMonth()];
-    const dayName = days[date.getDay()];
-    const day = date.getDate();
-    const hour = date.getHours();
-    const minute = date.getMinutes();
-    
-    const hours = (hour < 10) ? '0' + hour : hour;
-    const minutes = (minute < 10) ? '0' + minute : minute;
-    
-    return `${hours}:${minutes} - ${dayName}. ${day} ${month}.`;
+    const date = new Date()
+    const month = months[date.getMonth()]
+    const dayName = days[date.getDay()]
+    const day = date.getDate()
+    const hour = date.getHours()
+    const minute = date.getMinutes()
+
+    const hours = hour < 10 ? '0' + hour : hour
+    const minutes = minute < 10 ? '0' + minute : minute
+
+    return `${hours}:${minutes} - ${dayName}. ${day} ${month}.`
   }
-  
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentTime(getCurrentTime());
-    }, 1000);
+      setCurrentTime(getCurrentTime())
+    }, 1000)
 
     return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
+      clearInterval(intervalId)
+    }
+  }, [])
 
   // check if user is authenticated
   const isAuthenticated = false
@@ -106,21 +103,16 @@ function Header() {
       {/* Logo section */}
       <div>
         <i className="bi bi-start-fill"></i>
-          <LogoStyle to="/">
-            <img 
-              src={logo} 
-              alt="sirius-logo"
-              style={{width: "2rem"}} />
-            <h2 id='sr-logo'>Sirius.</h2>
-          </LogoStyle>
+        <LogoStyle to="/">
+          <img src={logo} alt="sirius-logo" style={{ width: '2rem' }} />
+          <h2 id="sr-logo">Sirius.</h2>
+        </LogoStyle>
       </div>
 
       {/* Navbar & actions section */}
       <ActionStyle>
         <NavStyle>
-          <span>
-            {currentTime}
-          </span>
+          <span>{currentTime}</span>
           <Link to="/faq">
             <i className="bi bi-question-circle"></i>
           </Link>
@@ -133,21 +125,25 @@ function Header() {
         </NavStyle>
 
         <AccountStyle>
-          { isAuthenticated ? <div>
-            <Link to="/account">
-              <i className="bi bi-gem"></i>
-            </Link>
-            <Link to="/account">
-              <i className="bi bi-person-circle"></i>
-            </Link>
-          </div> : <div>
-          <LinkAuth to="/sign-up">
-              <span>S'inscrire</span>
-            </LinkAuth>
-            <LinkAuth to="/login">
-              <span>Se connecter</span>
-            </LinkAuth>
-          </div>}
+          {isAuthenticated ? (
+            <div>
+              <Link to="/account">
+                <i className="bi bi-gem"></i>
+              </Link>
+              <Link to="/account">
+                <i className="bi bi-person-circle"></i>
+              </Link>
+            </div>
+          ) : (
+            <div>
+              <LinkAuth to="/sign-up">
+                <span>S'inscrire</span>
+              </LinkAuth>
+              <LinkAuth to="/login">
+                <span>Se connecter</span>
+              </LinkAuth>
+            </div>
+          )}
         </AccountStyle>
       </ActionStyle>
     </HeaderStyle>
