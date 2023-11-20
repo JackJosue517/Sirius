@@ -8,64 +8,64 @@ import google from './../../assets/google.png'
 import git from './../../assets/git.png'
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 `
 const Inscription = styled.div`
-  width: 450px;
-  padding: 2rem 2rem;
-  border-radius: 1rem;
-  height: 550px;
-  margin-top: 3rem;
-  box-shadow: 0 0 25px ${colors.lightGray};
+    width: 450px;
+    padding: 2rem 2rem;
+    border-radius: 1rem;
+    height: 550px;
+    margin-top: 3rem;
+    box-shadow: 0 0 25px ${colors.lightGray};
 `
 const Title = styled.h1`
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
 `
 const Form = styled.div`
   position: relative;
   height: 50px;
   margin-bottom: 1.4rem;
 
-  input {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    font-size: 1rem;
-    border: 1px solid ${colors.disabledColor};
-    border-radius: 0.5rem;
-    outline: none;
-    background: none;
-    z-index: 1;
-    padding-left: 2rem;
-  }
+    input{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 1rem;
+        border: 1px solid ${colors.disabledColor};
+        border-radius: 0.5rem;
+        outline: none;
+        background: none;
+        z-index: 1;
+        padding-left: 2rem;
+    }
 
-  input::placeholder {
-    font-size: 1rem;
-    position: absolute;
-    left: 2rem;
-    color: ${colors.disabledColor};
-  }
-
-  label {
-    position: absolute;
-    left: 1.6rem;
-    top: 0.9rem;
-    padding: 0 0.25rem;
-    width: 50%;
-    height: 50%;
-    font-size: 0.8rem;
-    background-color: ${colors.white};
-    color: ${colors.disabledColor};
-    transition: 0.25s;
-    z-index: 2;
-    pointer-events: none;
-  }
+    input::placeholder{
+        font-size: 1rem;
+        position: absolute;
+        left: 2rem;
+        color: ${colors.disabledColor};
+    }
+    
+    label{
+        position: absolute;
+        left: 1.6rem;
+        top: 0.9rem;
+        padding: 0 0.25rem;
+        width: 50%;
+        height: 50%;
+        font-size: 0.8rem;
+        background-color: ${colors.white};
+        color: ${colors.disabledColor};
+        transition: 0.25s;
+        z-index: 2;
+        pointer-events: none;
+    }
 
   label + i {
     position: absolute;
@@ -84,14 +84,14 @@ const Form = styled.div`
     color: ${colors.confirmColor};
   }
 
-  input:not(:placeholder-shown) + label {
-    top: -0.5rem;
-    left: 0.8rem;
-    font-size: 0.75rem;
-    width: fit-content;
-    height: fit-content;
-    z-index: 10;
-  }
+    input:not(:placeholder-shown) + label {
+        top: -.5rem;
+        left: .8rem;
+        font-size: 0.75rem;
+        width: fit-content;
+        height: fit-content;
+        z-index: 10;
+    }    
 
   input:focus + label {
     top: -0.5rem;
@@ -199,108 +199,105 @@ function Sign() {
     console.log(data)
   }
 
-  return (
-    <Container>
-      <Inscription>
-        <Title>Inscription</Title>
+    return (
+        <Container>
+            <Inscription>
+                <Title>Inscription</Title>
+                
+                <form action="#" method="post" onSubmit={handleSubmit(onSubmit)} >
+                    
+                    <Form>
+                        <input type="text"
+                            id="nom" 
+                            {...register("name", {required : true, })}
+                            placeholder=""
+                        />
+                        {errors.name && <p>Veuillez renseignez votre nom</p>}
+                        <label htmlFor="name">Nom d'utilisateur</label>
+                        <i className='bi bi-person'></i>
+                    </Form>
+                    
+                    <Form>
+                        <input type="email" 
+                            id="mail" 
+                            placeholder=""
+                            {...register("email", {required: true})}
+                        />
+                        {errors.email && <p>Veuillez renseignez votre adresse mail</p> }
+                        <label htmlFor="mail">Adresse mail</label>
+                        <i className='bi bi-envelope'></i>
+                    </Form>
 
-        <form action="#" method="post" onSubmit={handleSubmit(onSubmit)}>
-          <Form>
-            <input
-              type="text"
-              id="nom"
-              {...register('name', { required: true })}
-              placeholder=""
-            />
-            {errors.name && <p>Veuillez renseignez votre nom</p>}
-            <label htmlFor="name">Nom d'utilisateur</label>
-            <i className="bi bi-person"></i>
-          </Form>
+                    <Form>
+                        {passwordMatch && (
+                            <i className='bi bi-check2-circle' id="passwd1"></i>)}
+                        <input
+                            type="password"
+                            id="pass"
+                            placeholder=""
+                            {...register('pass', { required: true })}
+                            onChange={(e) => {
+                                checkPassword(e.target.value);
+                            }}
+                        />
+                        <label htmlFor="pass">Mot de passe</label>
+                        <i className="bi bi-lock"></i>
+                    </Form>
 
-          <Form>
-            <input
-              type="email"
-              id="mail"
-              placeholder=""
-              {...register('email', { required: true })}
-            />
-            {errors.email && <p>Veuillez renseignez votre adresse mail</p>}
-            <label htmlFor="mail">Adresse mail</label>
-            <i className="bi bi-envelope"></i>
-          </Form>
+                    <Form>
+                        {passwordMatch && (
+                            <i className='bi bi-check2-circle' id="passwd2"></i>
+                        )}
+                        <input
+                            type="password"
+                            id="pass2"
+                            placeholder=""
+                            {...register('pass2', { required: true })}
+                            onChange={(e) => {
+                                checkPassword(e.target.value)
+                            }}
+                        />
+                        {errors.pass2 && <p>Veuillez confirmer votre mot de passe</p>}
+                        <label htmlFor="pass2">Confirmation du mot de passe</label>
+                        <i className="bi bi-lock"></i>
+                    </Form>
 
-          <Form>
-            {passwordMatch && (
-              <i className="bi bi-check2-circle" id="passwd1"></i>
-            )}
-            <input
-              type="password"
-              id="pass"
-              placeholder=""
-              {...register('pass', { required: true })}
-              onChange={(e) => {
-                checkPassword(e.target.value)
-              }}
-            />
-            <label htmlFor="pass">Mot de passe</label>
-            <i className="bi bi-lock"></i>
-          </Form>
+                    <Politics>
+                        <input type="checkbox" name="politique" id="politique" />
+                        <label htmlFor="politique">Accepter les politiques de confidentialités</label>
+                    </Politics>
 
-          <Form>
-            {passwordMatch && (
-              <i className="bi bi-check2-circle" id="passwd2"></i>
-            )}
-            <input
-              type="password"
-              id="pass2"
-              placeholder=""
-              {...register('pass2', { required: true })}
-              onChange={(e) => {
-                checkPassword(e.target.value)
-              }}
-            />
-            {errors.pass2 && <p>Veuillez confirmer votre mot de passe</p>}
-            <label htmlFor="pass2">Confirmation du mot de passe</label>
-            <i className="bi bi-lock"></i>
-          </Form>
+                    <Button>Ouvrir son compte</Button>                
+                </form>
 
-          <Politics>
-            <input type="checkbox" name="politique" id="politique" />
-            <label htmlFor="politique">
-              Accepter les politiques de confidentialités
-            </label>
-          </Politics>
+                <Small>
+                    <span>Déjà inscrit ? 
+                        <Anchor to="/login">&nbsp;&nbsp; Se connecter</Anchor>
+                    </span>
+                </Small>
 
-          <Button>Ouvrir son compte</Button>
-        </form>
+                <SocialConnect>
+                    <h5>Ou continuer avec</h5>&nbsp;&nbsp;
+                        <LogoStyle>
+                            <Link to = "/facebook">
+                                <img src={facebook} alt="logo-windows" />
+                            </Link>
+                        </LogoStyle>
+                        <LogoStyle>
+                            <Link to= "/google">
+                                <img src={google} alt="logo-gmail"/>
+                            </Link>
+                        </LogoStyle>
+                        <LogoStyle>
+                            <Link to = "/git">
+                                <img src={git} alt="logo-git" />
+                            </Link>
+                        </LogoStyle>
+                </SocialConnect>
 
-        <Small>
-          <span>
-            Déjà inscrit ?<Anchor to="/login">&nbsp;&nbsp; Se connecter</Anchor>
-          </span>
-        </Small>
-
-        <SocialConnect>
-          <h5>Ou continuer avec</h5>&nbsp;&nbsp;
-          <LogoStyle>
-            <Link to="/facebook">
-              <img src={facebook} alt="logo-windows" />
-            </Link>
-          </LogoStyle>
-          <LogoStyle>
-            <Link to="/google">
-              <img src={google} alt="logo-gmail" />
-            </Link>
-          </LogoStyle>
-          <LogoStyle>
-            <Link to="/git">
-              <img src={git} alt="logo-git" />
-            </Link>
-          </LogoStyle>
-        </SocialConnect>
-      </Inscription>
-    </Container>
-  )
-}
-
-export default Sign
+            </Inscription>
+        </Container>
+    )
+  }
+  
+  export default Sign;

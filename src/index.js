@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 import Home from './pages/Home/'
 import Faq from './pages/FAQ/'
-// import Header from './components/Header/'
 import Error from './components/Error/'
 import Sign from './pages/Signin/'
 import Login from './pages/Login/'
@@ -29,7 +28,6 @@ root.render(
   <React.StrictMode>
     <Router>
       <GlobalStyle />
-      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/faq" element={<Faq />} />

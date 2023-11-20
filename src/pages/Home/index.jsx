@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { svgItems } from './../../data/svgItems'
 import { useEffect, useState } from 'react'
 import colors from './../../utils/style/colors'
+import Header from './../../components/Header'
 
 const ContainerStyle = styled.div`
   margin: 15px 10px 20px 0px;
