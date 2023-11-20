@@ -6,14 +6,25 @@ import colors from './../../utils/style/colors';
 import facebook from './../../assets/facebook.png'
 import google from './../../assets/google.png';
 import git from './../../assets/git.png';
+import logo from './../../assets/Sirius.png';
 
+const Return = styled(Link)`
+    i{
+        font-size: 2rem;
+        margin-left: 4rem;
+    }
+
+    i:hover{
+        color: ${colors.primaryColor};
+    }
+`
 
 const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
-    margin-top: 3rem;
+    margin-top: 4rem;
 `
 const Inscription = styled.div`
     width: 450px;
@@ -22,10 +33,20 @@ const Inscription = styled.div`
     height: 550px;
     box-shadow: 0 0 25px ${colors.lightGray};
 `
-const Title = styled.h1`
-    font-weight: bold;
-    text-align: center;
+const Title = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     margin-bottom: 2rem;
+    
+    img{
+        width: 50px;
+        height: 40px;
+    }
+
+    h1{
+        font-weight: bold;
+    }
 `
 const Form = styled.div`
     position: relative;
@@ -195,103 +216,113 @@ function Sign() {
     }
 
     return (
-        <Container>
-            <Inscription>
-                <Title>Inscription</Title>
-                
-                <form action="#" method="post" onSubmit={handleSubmit(onSubmit)} >
+        <>
+            <Return>
+                <Link to='/'>
+                    <i className='bi bi-arrow-left'></i>
+                </Link>
+            </Return>
+            <Container>
+                <Inscription>
+                    <Title>
+                        <img src={logo} alt="logo-sirius" />
+                        <h1>Connexion</h1>
+                    </Title>
                     
-                    <Form>
-                        <input type="text"
-                            id="nom" 
-                            {...register("name", {required : true, })}
-                            placeholder=""
-                        />
-                        {errors.name && <p>Veuillez renseignez votre nom</p>}
-                        <label htmlFor="name">Nom d'utilisateur</label>
-                        <i className='bi bi-person'></i>
-                    </Form>
-                    
-                    <Form>
-                        <input type="email" 
-                            id="mail" 
-                            placeholder=""
-                            {...register("email", {required: true})}
-                        />
-                        {errors.email && <p>Veuillez renseignez votre adresse mail</p> }
-                        <label htmlFor="mail">Adresse mail</label>
-                        <i className='bi bi-envelope'></i>
-                    </Form>
+                    <form action="#" method="post" onSubmit={handleSubmit(onSubmit)} >
+                        
+                        <Form>
+                            <input type="text"
+                                id="nom" 
+                                {...register("name", {required : true, })}
+                                placeholder=""
+                            />
+                            {errors.name && <p>Veuillez renseignez votre nom</p>}
+                            <label htmlFor="name">Nom d'utilisateur</label>
+                            <i className='bi bi-person'></i>
+                        </Form>
+                        
+                        <Form>
+                            <input type="email" 
+                                id="mail" 
+                                placeholder=""
+                                {...register("email", {required: true})}
+                            />
+                            {errors.email && <p>Veuillez renseignez votre adresse mail</p> }
+                            <label htmlFor="mail">Adresse mail</label>
+                            <i className='bi bi-envelope'></i>
+                        </Form>
 
-                    <Form>
-                        {passwordMatch && (
-                            <i className='bi bi-check2-circle' id="passwd1"></i>)}
-                        <input
-                            type="password"
-                            id="pass"
-                            placeholder=""
-                            {...register('pass', { required: true })}
-                            onChange={(e) => {
-                                checkPassword(e.target.value);
-                            }}
-                        />
-                        <label htmlFor="pass">Mot de passe</label>
-                        <i className="bi bi-lock"></i>
-                    </Form>
+                        <Form>
+                            {passwordMatch && (
+                                <i className='bi bi-check2-circle' id="passwd1"></i>)}
+                            <input
+                                type="password"
+                                id="pass"
+                                placeholder=""
+                                {...register('pass', { required: true })}
+                                onChange={(e) => {
+                                    checkPassword(e.target.value);
+                                }}
+                            />
+                            <label htmlFor="pass">Mot de passe</label>
+                            <i className="bi bi-lock"></i>
+                        </Form>
 
-                    <Form>
-                        {passwordMatch && (
-                            <i className='bi bi-check2-circle' id="passwd2"></i>
-                        )}
-                        <input
-                            type="password"
-                            id="pass2"
-                            placeholder=""
-                            {...register('pass2', { required: true })}
-                            onChange={(e) => {
-                                checkPassword(e.target.value)
-                            }}
-                        />
-                        {errors.pass2 && <p>Veuillez confirmer votre mot de passe</p>}
-                        <label htmlFor="pass2">Confirmation du mot de passe</label>
-                        <i className="bi bi-lock"></i>
-                    </Form>
+                        <Form>
+                            {passwordMatch && (
+                                <i className='bi bi-check2-circle' id="passwd2"></i>
+                            )}
+                            <input
+                                type="password"
+                                id="pass2"
+                                placeholder=""
+                                {...register('pass2', { required: true })}
+                                onChange={(e) => {
+                                    checkPassword(e.target.value)
+                                }}
+                            />
+                            {errors.pass2 && <p>Veuillez confirmer votre mot de passe</p>}
+                            <label htmlFor="pass2">Confirmation du mot de passe</label>
+                            <i className="bi bi-lock"></i>
+                        </Form>
 
-                    <Politics>
-                        <input type="checkbox" name="politique" id="politique" />
-                        <label htmlFor="politique">Accepter les politiques de confidentialités</label>
-                    </Politics>
+                        <Politics>
+                            <input type="checkbox" name="politique" id="politique" />
+                            <label htmlFor="politique">Accepter les politiques de confidentialités</label>
+                        </Politics>
 
-                    <Button>Ouvrir son compte</Button>                
-                </form>
+                        <Button>Ouvrir son compte</Button>                
+                    </form>
 
-                <Small>
-                    <span>Déjà inscrit ? 
-                        <Anchor to="/login">&nbsp;&nbsp; Se connecter</Anchor>
-                    </span>
-                </Small>
+                    <Small>
+                        <span>Déjà inscrit ? 
+                            <Anchor to="/login">&nbsp;&nbsp; Se connecter</Anchor>
+                        </span>
+                    </Small>
 
-                <SocialConnect>
-                    <h5>Ou continuer avec</h5>&nbsp;&nbsp;
-                        <LogoStyle>
-                            <Link to = "/facebook">
-                                <img src={facebook} alt="logo-windows" />
-                            </Link>
-                        </LogoStyle>
-                        <LogoStyle>
-                            <Link to= "/google">
-                                <img src={google} alt="logo-gmail"/>
-                            </Link>
-                        </LogoStyle>
-                        <LogoStyle>
-                            <Link to = "/git">
-                                <img src={git} alt="logo-git" />
-                            </Link>
-                        </LogoStyle>
-                </SocialConnect>
+                    <SocialConnect>
+                        <h5>Ou continuer avec</h5>&nbsp;&nbsp;
+                            <LogoStyle>
+                                <Link to = "/facebook">
+                                    <img src={facebook} alt="logo-windows" />
+                                </Link>
+                            </LogoStyle>
+                            <LogoStyle>
+                                <Link to= "/google">
+                                    <img src={google} alt="logo-gmail"/>
+                                </Link>
+                            </LogoStyle>
+                            <LogoStyle>
+                                <Link to = "/git">
+                                    <img src={git} alt="logo-git" />
+                                </Link>
+                            </LogoStyle>
+                    </SocialConnect>
 
-            </Inscription>
-        </Container>
+                </Inscription>
+            </Container>
+        </>
     )
   }
   

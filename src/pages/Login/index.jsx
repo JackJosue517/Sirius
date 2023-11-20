@@ -5,12 +5,25 @@ import { useForm } from 'react-hook-form';
 import facebook from './../../assets/facebook.png'
 import google from './../../assets/google.png';
 import git from './../../assets/git.png';
+import logo from './../../assets/Sirius.png'
+
+const Return = styled(Link)`
+    i{
+        font-size: 2rem;
+        margin-left: 4rem;
+    }
+
+    i:hover{
+        color: ${colors.primaryColor};
+    }
+`
 
 const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
+    margin-top: 4rem;
 `
 const Connexion = styled.div`
     width: 450px;
@@ -18,10 +31,20 @@ const Connexion = styled.div`
     border-radius: 1rem;
     box-shadow: 0 0 25px ${colors.lightGray}
 `
-const Title = styled.h1`
-    font-weight: bold;
-    text-align: center;
+const Title = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     margin-bottom: 3rem;
+    
+    img{
+        width: 50px;
+        height: 40px;
+    }
+
+    h1{
+        font-weight: bold;
+    }
 `
 const Form = styled.div`
     position: relative;
@@ -183,75 +206,85 @@ function Login() {
 
     
     return (
-        <Container>
-            <Connexion>
-                <Title>Connexion</Title>
-                
-                <form action="#" method="post" onSubmit={handleSubmit(onSubmit)} >
-                    <Form>
-                        <input type="text"
-                            id="username" 
-                            placeholder="" 
-                            {...register("name", {required : true, })}
-                        />
-                        {errors.name && <p>Veuillez renseignez votre nom</p>}
-                        <label htmlFor="username">Nom d'utilisateur</label>
-                        <i className='bi bi-person'></i>
-                    </Form>
+        <>
+            <Return>
+                <Link to='/'>
+                    <i className='bi bi-arrow-left'></i>
+                </Link>
+            </Return>
+            <Container>
+                <Connexion>
+                    <Title>
+                        <img src={logo} alt="logo-sirius" />
+                        <h1>Connexion</h1>
+                    </Title>
+                    
+                    <form action="#" method="post" onSubmit={handleSubmit(onSubmit)} >
+                        <Form>
+                            <input type="text"
+                                id="username" 
+                                placeholder="" 
+                                {...register("name", {required : true, })}
+                            />
+                            {errors.name && <p>Veuillez renseignez votre nom</p>}
+                            <label htmlFor="username">Nom d'utilisateur</label>
+                            <i className='bi bi-person'></i>
+                        </Form>
 
-                    <Form>
-                        <input type="password" 
-                            id="password" 
-                            placeholder= ""
-                            {...register("pass", {required : true})} />
-                        <label htmlFor="password">Mot de passe</label>
-                        {errors.pass && <p>Veuillez renseignez un mot de passe</p>}
-                        <i className='bi bi-lock'></i>
-                    </Form>
+                        <Form>
+                            <input type="password" 
+                                id="password" 
+                                placeholder= ""
+                                {...register("pass", {required : true})} />
+                            <label htmlFor="password">Mot de passe</label>
+                            {errors.pass && <p>Veuillez renseignez un mot de passe</p>}
+                            <i className='bi bi-lock'></i>
+                        </Form>
 
-                    <ActionStyle>
+                        <ActionStyle>
 
-                        <div>
-                            <input type="checkbox" id="rappel"/>
-                            <label htmlFor="rappel">Se souvenir de moi</label>
-                        </div>
-                        <small>
-                            <Anchor to="/recover">
-                                <span>Mot de passe oublié ?</span>
-                            </Anchor>
-                        </small>
-                    </ActionStyle>
+                            <div>
+                                <input type="checkbox" id="rappel"/>
+                                <label htmlFor="rappel">Se souvenir de moi</label>
+                            </div>
+                            <small>
+                                <Anchor to="/recover">
+                                    <span>Mot de passe oublié ?</span>
+                                </Anchor>
+                            </small>
+                        </ActionStyle>
 
-                    <Button>Se connecter</Button>                
-                </form>
+                        <Button>Se connecter</Button>                
+                    </form>
 
-                <Small>
-                    Pas de compte ? 
-                    <Anchor to="/sign-up">
-                        <span>&nbsp;&nbsp; S'incrire maintenant</span>
-                    </Anchor>
-                </Small>
+                    <Small>
+                        Pas de compte ? 
+                        <Anchor to="/sign-up">
+                            <span>&nbsp;&nbsp; S'incrire maintenant</span>
+                        </Anchor>
+                    </Small>
 
-                <SocialConnect>
-                    <h5>Ou continuer avec</h5>
-                        <LogoStyle>
-                            <Link to = "/facebook">
-                                <img src={facebook} alt="logo-windows" />
-                            </Link>
-                        </LogoStyle>
-                        <LogoStyle>
-                            <Link to= "/google">
-                                <img src={google} alt="logo-gmail"/>
-                            </Link>
-                        </LogoStyle>
-                        <LogoStyle>
-                            <Link to = "/git">
-                                <img src={git} alt="logo-git" />
-                            </Link>
-                        </LogoStyle>
-                </SocialConnect>                
-            </Connexion>
-        </Container>
+                    <SocialConnect>
+                        <h5>Ou continuer avec</h5>
+                            <LogoStyle>
+                                <Link to = "/facebook">
+                                    <img src={facebook} alt="logo-windows" />
+                                </Link>
+                            </LogoStyle>
+                            <LogoStyle>
+                                <Link to= "/google">
+                                    <img src={google} alt="logo-gmail"/>
+                                </Link>
+                            </LogoStyle>
+                            <LogoStyle>
+                                <Link to = "/git">
+                                    <img src={git} alt="logo-git" />
+                                </Link>
+                            </LogoStyle>
+                    </SocialConnect>                
+                </Connexion>
+            </Container>
+        </>
     )
   }
   
