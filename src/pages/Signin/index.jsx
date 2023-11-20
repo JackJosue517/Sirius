@@ -89,7 +89,7 @@ const Form = styled.div`
         width: fit-content;
         height: fit-content;
         z-index: 10;
-        background: #fff;
+        /*background: #fff;*/
     }    
 
     input:focus + label {
@@ -100,7 +100,7 @@ const Form = styled.div`
         width: fit-content;
         height: fit-content;
         z-index: 10;
-        background: #fff;
+        /*background: #fff;*/
     }
     
     input:not(:placeholder-shown) input:not(:focus) + label {
