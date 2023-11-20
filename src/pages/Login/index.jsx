@@ -11,6 +11,7 @@ const Return = styled(Link)`
     i{
         font-size: 2rem;
         margin-left: 4rem;
+        color: ${colors.confirmColor};
     }
 
     i:hover{
