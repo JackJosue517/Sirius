@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { svgItems } from './../../data/svgItems'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import colors from './../../utils/style/colors'
 import Header from './../../components/Header'
 
@@ -169,99 +169,102 @@ function Home() {
   }
 
   return (
-    <ContainerStyle>
-      <InfoStyle>
-        <h1>
-          La visioconférence haute qualité, maintenant disponible pour tous
-        </h1>
-        <p>
-          Nous avons adapté Sirius, notre service de
-          <br /> visioconférence professionnel sécurisé, afin de le rendre
-          <br /> disponible pour tous.
-        </p>
-        <ActionStyle>
-          <span id="sr-new-meet">
-            <i className="bi bi-node-plus-fill"></i>&nbsp; Nouvelle réunion
-          </span>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span id="sr-go-meet">
-            <div>
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-keyboard-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6zm13 .25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25zM2.25 8a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 3 8.75v-.5A.25.25 0 0 0 2.75 8h-.5zM4 8.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 5 8.75v-.5A.25.25 0 0 0 4.75 8h-.5a.25.25 0 0 0-.25.25zM6.25 8a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 7 8.75v-.5A.25.25 0 0 0 6.75 8h-.5zM8 8.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 9 8.75v-.5A.25.25 0 0 0 8.75 8h-.5a.25.25 0 0 0-.25.25zM13.25 8a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5zm0 2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5zm-3-2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h1.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-1.5zm.75 2.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25zM11.25 6a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5zM9 6.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5A.25.25 0 0 0 9.75 6h-.5a.25.25 0 0 0-.25.25zM7.25 6a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 8 6.75v-.5A.25.25 0 0 0 7.75 6h-.5zM5 6.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 6 6.75v-.5A.25.25 0 0 0 5.75 6h-.5a.25.25 0 0 0-.25.25zM2.25 6a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h1.5A.25.25 0 0 0 4 6.75v-.5A.25.25 0 0 0 3.75 6h-1.5zM2 10.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25zM4.25 10a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h5.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-5.5z"></path>
-                </svg>
-              </span>
-              <input type="text" placeholder="Saisir un code ou lien" />
-              &nbsp;&nbsp;
-            </div>
-            <button>Participer</button>
-          </span>
-        </ActionStyle>
+    <React.Fragment>
+      <Header />
+      <ContainerStyle>
+        <InfoStyle>
+          <h1>
+            La visioconférence haute qualité, maintenant disponible pour tous
+          </h1>
+          <p>
+            Nous avons adapté Sirius, notre service de
+            <br /> visioconférence professionnel sécurisé, afin de le rendre
+            <br /> disponible pour tous.
+          </p>
+          <ActionStyle>
+            <span id="sr-new-meet">
+              <i className="bi bi-node-plus-fill"></i>&nbsp; Nouvelle réunion
+            </span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="sr-go-meet">
+              <div>
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-keyboard-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6zm13 .25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25zM2.25 8a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 3 8.75v-.5A.25.25 0 0 0 2.75 8h-.5zM4 8.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 5 8.75v-.5A.25.25 0 0 0 4.75 8h-.5a.25.25 0 0 0-.25.25zM6.25 8a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 7 8.75v-.5A.25.25 0 0 0 6.75 8h-.5zM8 8.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 9 8.75v-.5A.25.25 0 0 0 8.75 8h-.5a.25.25 0 0 0-.25.25zM13.25 8a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5zm0 2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5zm-3-2a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h1.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-1.5zm.75 2.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25zM11.25 6a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5zM9 6.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5A.25.25 0 0 0 9.75 6h-.5a.25.25 0 0 0-.25.25zM7.25 6a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 8 6.75v-.5A.25.25 0 0 0 7.75 6h-.5zM5 6.25v.5c0 .138.112.25.25.25h.5A.25.25 0 0 0 6 6.75v-.5A.25.25 0 0 0 5.75 6h-.5a.25.25 0 0 0-.25.25zM2.25 6a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h1.5A.25.25 0 0 0 4 6.75v-.5A.25.25 0 0 0 3.75 6h-1.5zM2 10.25v.5c0 .138.112.25.25.25h.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25zM4.25 10a.25.25 0 0 0-.25.25v.5c0 .138.112.25.25.25h5.5a.25.25 0 0 0 .25-.25v-.5a.25.25 0 0 0-.25-.25h-5.5z"></path>
+                  </svg>
+                </span>
+                <input type="text" placeholder="Saisir un code ou lien" />
+                &nbsp;&nbsp;
+              </div>
+              <button>Participer</button>
+            </span>
+          </ActionStyle>
 
-        <p>
-          <Link
-            to="/about-us"
-            style={{
-              textDecoration: 'none',
-              color: `${colors['primaryColor']}`,
-            }}
-          >
-            En savoir plus sur Sirius
-          </Link>
-        </p>
-      </InfoStyle>
+          <p>
+            <Link
+              to="/about-us"
+              style={{
+                textDecoration: 'none',
+                color: `${colors['primaryColor']}`,
+              }}
+            >
+              En savoir plus sur Sirius
+            </Link>
+          </p>
+        </InfoStyle>
 
-      <CardStyle>
-        <BoxStyle>
-          <i
-            className="bi bi-chevron-left"
-            style={{ color: leftChevronColor }}
-            onClick={() => handleClick(-1)}
-            idx={index}
-          ></i>
+        <CardStyle>
+          <BoxStyle>
+            <i
+              className="bi bi-chevron-left"
+              style={{ color: leftChevronColor }}
+              onClick={() => handleClick(-1)}
+              idx={index}
+            ></i>
 
-          <img
-            id="sr-svg"
-            src={svgItems[index].image}
-            alt="Illustration SVG pour la fonctionnalité"
-          />
+            <img
+              id="sr-svg"
+              src={svgItems[index].image}
+              alt="Illustration SVG pour la fonctionnalité"
+            />
 
-          <i
-            className="bi bi-chevron-right"
-            style={{ color: rightChevronColor }}
-            onClick={() => handleClick(1)}
-            idx={index}
-          ></i>
-        </BoxStyle>
+            <i
+              className="bi bi-chevron-right"
+              style={{ color: rightChevronColor }}
+              onClick={() => handleClick(1)}
+              idx={index}
+            ></i>
+          </BoxStyle>
 
-        <BoxDescStyle>
-          <h2>{svgItems[index].title}</h2>
-          <p>{svgItems[index].description}</p>
+          <BoxDescStyle>
+            <h2>{svgItems[index].title}</h2>
+            <p>{svgItems[index].description}</p>
 
-          <CarousselStyle>
-            <ul>
-              {Array(svgItems.length)
-                .fill()
-                .map((_, i) => (
-                  <li key={i}>
-                    <button
-                      className={i === index ? 'active' : ''}
-                      onClick={() => setIndex(i)}
-                    ></button>
-                  </li>
-                ))}
-            </ul>
-          </CarousselStyle>
-        </BoxDescStyle>
-      </CardStyle>
-    </ContainerStyle>
+            <CarousselStyle>
+              <ul>
+                {Array(svgItems.length)
+                  .fill()
+                  .map((_, i) => (
+                    <li key={i}>
+                      <button
+                        className={i === index ? 'active' : ''}
+                        onClick={() => setIndex(i)}
+                      ></button>
+                    </li>
+                  ))}
+              </ul>
+            </CarousselStyle>
+          </BoxDescStyle>
+        </CardStyle>
+      </ContainerStyle>
+    </React.Fragment>
   )
 }
 

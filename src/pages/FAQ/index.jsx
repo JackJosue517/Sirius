@@ -1,8 +1,14 @@
+import React from 'react'
+import Header from '../../components/Header'
+
 function Faq() {
   return (
-    <div>
-      <h1>FAQ</h1>
-    </div>
+    <React.Fragment>
+      <Header />
+      <div>
+        <h1>FAQ</h1>
+      </div>
+    </React.Fragment>
   )
 }
 

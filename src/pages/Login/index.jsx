@@ -3,20 +3,19 @@ import { Link } from 'react-router-dom'
 import colors from './../../utils/style/colors'
 import { useForm } from 'react-hook-form'
 import facebook from './../../assets/facebook.png'
-import google from './../../assets/google.png';
-import git from './../../assets/git.png';
-import logo from './../../assets/Sirius.png'
+import google from './../../assets/google.png'
+import git from './../../assets/git.png'
+import React from 'react'
 
 const Return = styled(Link)`
-    i{
-        font-size: 2rem;
-        margin-left: 4rem;
-        color: ${colors.confirmColor};
-    }
-
-    i:hover{
-        color: ${colors.primaryColor};
-    }
+  i {
+    font-size: 2rem;
+    margin-left: 4rem;
+    color: ${colors.confirmColor};
+  }
+  i:hover {
+    color: ${colors.primaryColor};
+  }
 `
 
 const Container = styled.div`
@@ -196,77 +195,82 @@ function Login() {
   }
 
   return (
-    <Container>
-      <Connexion>
-        <Title>Connexion</Title>
+    <React.Fragment>
+      <Return>
+        <i className="bi bi-left-arrow"></i>
+      </Return>
+      <Container>
+        <Connexion>
+          <Title>Connexion</Title>
 
-        <form action="#" method="post" onSubmit={handleSubmit(onSubmit)}>
-          <Form>
-            <input
-              type="text"
-              id="username"
-              placeholder=""
-              {...register('name', { required: true })}
-            />
-            {errors.name && <p>Veuillez renseignez votre nom</p>}
-            <label htmlFor="username">Nom d'utilisateur</label>
-            <i className="bi bi-person"></i>
-          </Form>
+          <form action="#" method="post" onSubmit={handleSubmit(onSubmit)}>
+            <Form>
+              <input
+                type="text"
+                id="username"
+                placeholder=""
+                {...register('name', { required: true })}
+              />
+              {errors.name && <p>Veuillez renseignez votre nom</p>}
+              <label htmlFor="username">Nom d'utilisateur</label>
+              <i className="bi bi-person"></i>
+            </Form>
 
-          <Form>
-            <input
-              type="password"
-              id="password"
-              placeholder=""
-              {...register('pass', { required: true })}
-            />
-            <label htmlFor="password">Mot de passe</label>
-            {errors.pass && <p>Veuillez renseignez un mot de passe</p>}
-            <i className="bi bi-lock"></i>
-          </Form>
+            <Form>
+              <input
+                type="password"
+                id="password"
+                placeholder=""
+                {...register('pass', { required: true })}
+              />
+              <label htmlFor="password">Mot de passe</label>
+              {errors.pass && <p>Veuillez renseignez un mot de passe</p>}
+              <i className="bi bi-lock"></i>
+            </Form>
 
-          <ActionStyle>
-            <div>
-              <input type="checkbox" id="rappel" />
-              <label htmlFor="rappel">Se souvenir de moi</label>
-            </div>
-            <small>
-              <Anchor to="/recover">
-                <span>Mot de passe oublié ?</span>
-              </Anchor>
-            </small>
-          </ActionStyle>
+            <ActionStyle>
+              <div>
+                <input type="checkbox" id="rappel" />
+                <label htmlFor="rappel">Se souvenir de moi</label>
+              </div>
+              <small>
+                <Anchor to="/recover">
+                  <span>Mot de passe oublié ?</span>
+                </Anchor>
+              </small>
+            </ActionStyle>
 
-          <Button>Se connecter</Button>
-        </form>
+            <Button>Se connecter</Button>
+          </form>
 
-        <Small>
-          Pas de compte ?
-          <Anchor to="/sign-up">
-            <span>&nbsp;&nbsp; S'incrire maintenant</span>
-          </Anchor>
-        </Small>
+          <Small>
+            Pas de compte ?
+            <Anchor to="/sign-up">
+              <span>&nbsp;&nbsp; S'incrire maintenant</span>
+            </Anchor>
+          </Small>
 
-        <SocialConnect>
-          <h5>Ou continuer avec</h5>
-          <LogoStyle>
-            <Link to="/facebook">
-              <img src={facebook} alt="logo-windows" />
-            </Link>
-          </LogoStyle>
-          <LogoStyle>
-            <Link to="/google">
-              <img src={google} alt="logo-gmail" />
-            </Link>
-          </LogoStyle>
-          <LogoStyle>
-            <Link to="/git">
-              <img src={git} alt="logo-git" />
-            </Link>
-          </LogoStyle>
-        </SocialConnect>
-      </Connexion>
-    </Container>
+          <SocialConnect>
+            <h5>Ou continuer avec</h5>
+            <LogoStyle>
+              <Link to="/facebook">
+                <img src={facebook} alt="logo-windows" />
+              </Link>
+            </LogoStyle>
+            <LogoStyle>
+              <Link to="/google">
+                <img src={google} alt="logo-gmail" />
+              </Link>
+            </LogoStyle>
+            <LogoStyle>
+              <Link to="/git">
+                <img src={git} alt="logo-git" />
+              </Link>
+            </LogoStyle>
+          </SocialConnect>
+        </Connexion>
+      </Container>
+    </React.Fragment>
   )
 }
 

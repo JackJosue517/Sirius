@@ -8,6 +8,7 @@ import Faq from './pages/FAQ/'
 import Error from './components/Error/'
 import Sign from './pages/Signin/'
 import Login from './pages/Login/'
+import Wait from './pages/Wait/'
 import Room from './pages/Room/'
 
 const GlobalStyle = createGlobalStyle`
@@ -33,6 +34,7 @@ root.render(
         <Route path="/faq" element={<Faq />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<Sign />} />
+        <Route path="/waiting" element={<Wait />} />
         <Route path="/call-room" element={<Room />} />
         <Route path="*" element={<Error />} />
       </Routes>
