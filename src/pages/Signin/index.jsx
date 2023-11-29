@@ -12,7 +12,7 @@ const Return = styled(Link)`
   i {
     font-size: 2rem;
     margin-left: 4rem;
-    color: ${colors.confirmColor};
+    color: ${colors.darkGray};
   }
 
   i:hover {
@@ -232,8 +232,7 @@ function Sign() {
       <Container>
         <Inscription>
           <Title>
-            <img src={logo} alt="logo-sirius" />
-            <h1>Connexion</h1>
+            <h1>S'inscrire</h1>
           </Title>
 
           <form action="#" method="post" onSubmit={handleSubmit(onSubmit)}>
