@@ -11,7 +11,7 @@ const Return = styled(Link)`
   i {
     font-size: 2rem;
     margin-left: 4rem;
-    color: ${colors.confirmColor};
+    color: ${colors.darkGray};
   }
   i:hover {
     color: ${colors.primaryColor};
@@ -197,7 +197,9 @@ function Login() {
   return (
     <React.Fragment>
       <Return>
-        <i className="bi bi-left-arrow"></i>
+        <Link to="/">
+          <i className="bi bi-arrow-left"></i>
+        </Link>
       </Return>
       <Container>
         <Connexion>
@@ -230,7 +232,7 @@ function Login() {
 
             <ActionStyle>
               <div>
-                <input type="checkbox" id="rappel" />
+                <input type="checkbox" id="rappel" />&nbsp;&nbsp;
                 <label htmlFor="rappel">Se souvenir de moi</label>
               </div>
               <small>
