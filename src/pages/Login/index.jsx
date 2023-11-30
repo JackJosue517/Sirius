@@ -232,7 +232,8 @@ function Login() {
 
             <ActionStyle>
               <div>
-                <input type="checkbox" id="rappel" />&nbsp;&nbsp;
+                <input type="checkbox" id="rappel" />
+                &nbsp;&nbsp;
                 <label htmlFor="rappel">Se souvenir de moi</label>
               </div>
               <small>

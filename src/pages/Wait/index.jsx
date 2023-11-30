@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Popup from "reactjs-popup"
+import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Header from '../../components/Header'
 import styled from 'styled-components'
@@ -90,21 +90,21 @@ const PopupStyle = styled(Popup)`
 `
 
 const AroniaModal = styled.div`
-  .arn-content img{
+  .arn-content img {
     width: 100%;
     height: 200px;
   }
-  .arn-content h2{
+  .arn-content h2 {
     text-align: center;
   }
-  .arn-content p{
+  .arn-content p {
     text-align: center;
     font-weight: 400;
   }
-  .arn-actions{
+  .arn-actions {
     width: 100%;
   }
-  .arn-actions button{
+  .arn-actions button {
     width: 100%;
     text-align: center;
     display: block;
@@ -116,10 +116,10 @@ const AroniaModal = styled.div`
     padding: 20px;
     border-radius: 30px;
     cursor: pointer;
-    color: ${colors.primaryColor}
+    color: ${colors.primaryColor};
   }
 
-  .arn-actions .arn-access{
+  .arn-actions .arn-access {
     background: ${colors.primaryColor};
     color: #ffffff;
     width: 90%;
@@ -130,37 +130,54 @@ const AroniaModal = styled.div`
 `
 
 function Wait() {
-
   const [flag, setFlag] = useState(true)
 
   useEffect(() => {
-    const source = document.querySelector(".source")
+    const source = document.querySelector('.source')
     flag === true && source.click()
   }, [flag])
 
   return (
     <React.Fragment>
-
-      <PopupStyle trigger={<input className='source'
-        type="hidden" value="We are going to open pop-up for request access
-        to mic & camera"/>} modal nested>
-        {
-          close => (
-            <AroniaModal className='arn-modal'>
-              <div className='arn-content'>
-                <img src={request} alt='svg used for illustrate'/>
-                <br/><br/>
-                <h2>Souhaitez-vous que les autres puissent vous voir et vous entendre 
-                  pendant la réunion ?</h2><br/><br/>
-                <p>Vous pouvez éteindre votre micro et votre caméra à tout moment.</p><br/>
-              </div>
-              <div className='arn-actions'>
-                <button onClick={(e) => console.log(e)} className='arn-access'>Autoriser l'accès au micro et à la caméra</button>
-                <button onClick={() => close()}>Continuer sans micro ni caméra</button>
-              </div>
-            </AroniaModal>
-          )
+      <PopupStyle
+        trigger={
+          <input
+            className="source"
+            type="hidden"
+            value="We are going to open pop-up for request access
+        to mic & camera"
+          />
         }
+        modal
+        nested
+      >
+        {(close) => (
+          <AroniaModal className="arn-modal">
+            <div className="arn-content">
+              <img src={request} alt="svg used for illustrate" />
+              <br />
+              <br />
+              <h2>
+                Souhaitez-vous que les autres puissent vous voir et vous
+                entendre pendant la réunion ?
+              </h2>
+              <br />
+              <br />
+              <p>
+                Vous pouvez éteindre votre micro et votre caméra à tout moment.
+              </p>
+              <br />
+            </div>
+            <div className="arn-actions">
+              <button onClick={(e) => console.log(e)} className="arn-access">
+                Autoriser l'accès au micro et à la caméra
+              </button>
+              <button onClick={() => close()}>
+                Continuer sans micro ni caméra
+              </button>
+            </div>
+          </AroniaModal>
+        )}
       </PopupStyle>
 
       <Header />

@@ -24,6 +24,8 @@ import disconnect from './../../assets/disconnect.png'
 import call from './../../assets/call.png'
 import mic from './../../assets/mic.png'
 import cast from './../../assets/cast.png'
+import initialize from "./../../api/webrtc/functions"
+import { useEffect } from 'react'
 
 const RoomHeader = styled.div`
   width: 100%;
@@ -172,13 +174,18 @@ const RoomContainer = styled.div`
 `
 
 function Room() {
+  // Initialize all events | functions provided by /api/webrtc
+  useEffect(() => {
+    initialize()
+  }, [])
+
   return (
     <RoomHeader>
       <RoomNav>
         <AppLogo src={logo} />
         <RoomSubNav>
           <li>
-            <img src={live} class="active" />
+            <img src={live} className="active" />
           </li>
           <li>
             <img src={video} />
@@ -199,24 +206,25 @@ function Room() {
       </RoomNav>
 
       <RoomContainer>
-        <div class="top-icons">
+        <div className="top-icons">
           <img src={search} />
           <img src={menu} />
         </div>
 
-        <div class="row">
-          <div class="col-">
-            <img src={hostimg} class="host-img" />
-            <div class="controls">
-              <img src={chat} />
-              <img src={disconnect} />
-              <img src={call} class="call-icon" />
-              <img src={mic} />
-              <img src={cast} />
+        <div className="row">
+          <div className="col-">
+            <img src={hostimg} className="host-img" />
+            
+            <div className="controls">
+              <img src={chat} className="control" />
+              <img src={disconnect} className="control" />
+              <img src={call} className="call-icon control" id="hangUp" />
+              <img src={mic} className="control" />
+              <img src={cast} className="control" />
             </div>
           </div>
-          <div class="col-2">
-            <div class="joined">
+          <div className="col-2">
+            <div className="joined">
               <p>Ayant rejoint</p>
               <div>
                 <img src={people1} />
@@ -226,7 +234,7 @@ function Room() {
                 <img src={people5} />
               </div>
             </div>
-            <div class="invite">
+            <div className="invite">
               <p>Inviter plus de personnes</p>
               <div>
                 <img src={user1} />

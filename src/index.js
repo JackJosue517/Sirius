@@ -25,8 +25,9 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
+//! Don't forget to reactivate React.StrictMode
 root.render(
-  <React.StrictMode>
+  <React.Fragment>
     <Router>
       <GlobalStyle />
       <Routes>
@@ -39,7 +40,7 @@ root.render(
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>
-  </React.StrictMode>,
+  </React.Fragment>,
 )
 
 // If you want to start measuring performance in your app, pass a function
