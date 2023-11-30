@@ -212,9 +212,8 @@ function Room() {
         </div>
 
         <div className="row">
-          <div className="col-">
-            <img src={hostimg} className="host-img" />
-            
+          <div className="col-1">
+            <video id="remoteVideo" autoplay playsinline className="host-img"></video>
             <div className="controls">
               <img src={chat} className="control" />
               <img src={disconnect} className="control" />
