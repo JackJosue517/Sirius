@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { months, days } from './../../data/date'
+import Report from './../Report'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import logo from './../../assets/sirius.png'
@@ -69,6 +70,7 @@ const LinkAuth = styled(Link)`
 
 function Header() {
   const [currentTime, setCurrentTime] = useState(getCurrentTime)
+  const [reportVisible, setReportVisible] = useState(false);
 
   // Date & time manipulation
   function getCurrentTime() {
@@ -95,11 +97,22 @@ function Header() {
     }
   }, [])
 
+  //Display or wipe the report section
+  const handleReportClick = () => {
+    setReportVisible(!reportVisible);
+  };
+
   // check if user is authenticated
   const isAuthenticated = false
 
   return (
-    <HeaderStyle>
+    <HeaderStyle
+      onClick={() => {
+        if (reportVisible) {
+          setReportVisible(false);
+        }
+      }}
+    >
       {/* Logo section */}
       <div>
         <i className="bi bi-start-fill"></i>
@@ -116,7 +129,7 @@ function Header() {
           <Link to="/faq">
             <i className="bi bi-question-circle"></i>
           </Link>
-          <Link to="/report">
+          <Link onClick={handleReportClick}>
             <i className="bi bi-chat-left-dots"></i>
           </Link>
           <Link to="/settings">
@@ -146,7 +159,16 @@ function Header() {
           )}
         </AccountStyle>
       </ActionStyle>
-    </HeaderStyle>
+
+      {/* Display of the report section */}
+      {reportVisible && 
+        <Report 
+          close={() => { 
+            setReportVisible(false);
+          }} 
+        />
+      }
+    </HeaderStyle>     
   )
 }
 
