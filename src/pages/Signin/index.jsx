@@ -6,7 +6,6 @@ import colors from './../../utils/style/colors'
 import facebook from './../../assets/facebook.png'
 import google from './../../assets/google.png'
 import git from './../../assets/git.png'
-import logo from './../../assets/sirius.png'
 
 const Return = styled(Link)`
   i {
