@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Header from '../../components/Header'
 import styled from 'styled-components'
 import video from './../../assets/video.mp4'
+import request from './../../assets/sirius.png'
 import colors from '../../utils/style/colors'
-import { useEffect } from 'react'
-import request from './../../assets/request-mic-video.svg'
 
 const WaitingRoom = styled.div`
   width: calc(100% - 140px);

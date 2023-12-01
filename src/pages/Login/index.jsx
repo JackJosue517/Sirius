@@ -11,7 +11,7 @@ const Return = styled(Link)`
   i {
     font-size: 2rem;
     margin-left: 4rem;
-    color: ${colors.darkGray};
+    color: ${colors.confirmColor};
   }
   i:hover {
     color: ${colors.primaryColor};
@@ -197,9 +197,7 @@ function Login() {
   return (
     <React.Fragment>
       <Return>
-        <Link to="/">
-          <i className="bi bi-arrow-left"></i>
-        </Link>
+        <i className="bi bi-left-arrow"></i>
       </Return>
       <Container>
         <Connexion>

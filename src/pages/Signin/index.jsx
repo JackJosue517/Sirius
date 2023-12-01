@@ -6,12 +6,13 @@ import colors from './../../utils/style/colors'
 import facebook from './../../assets/facebook.png'
 import google from './../../assets/google.png'
 import git from './../../assets/git.png'
+import logo from './../../assets/sirius.png'
 
 const Return = styled(Link)`
   i {
     font-size: 2rem;
     margin-left: 4rem;
-    color: ${colors.darkGray};
+    color: ${colors.confirmColor};
   }
 
   i:hover {
@@ -231,7 +232,8 @@ function Sign() {
       <Container>
         <Inscription>
           <Title>
-            <h1>S'inscrire</h1>
+            <img src={logo} alt="logo-sirius" />
+            <h1>Connexion</h1>
           </Title>
 
           <form action="#" method="post" onSubmit={handleSubmit(onSubmit)}>
