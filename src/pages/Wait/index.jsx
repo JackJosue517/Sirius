@@ -4,7 +4,7 @@ import 'reactjs-popup/dist/index.css'
 import Header from '../../components/Header'
 import styled from 'styled-components'
 import video from './../../assets/video.mp4'
-import request from './../../assets/sirius.png'
+import request from './../../assets/social.svg'
 import colors from '../../utils/style/colors'
 
 const WaitingRoom = styled.div`
